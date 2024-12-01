@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Econautica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index-style.css">
+    <link rel="stylesheet" href="css/navbar-style.css">
+</head>
+
+<body>
+
+    <div>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a class="nav-link" href="#">Mis Actividades</a>
+                <div class="navbar-collapse d-flex justify-content-center">
+                    <span class="navbar-title" style="font-style: italic;">Econautica</span>
+                </div>
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link" href="#">Iniciar Sesión</a>
+                    <span class="navbar-text">|</span>
+                    <a class="nav-link" href="#">Registrarse</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Mensaje en el div -->
+    <div class="message-banner text-center py-3">
+        <p class="text-white m-0">Explora lo mejor del mar, dejando una huella sostenible.</p>
+    </div>
+
+    <div>
+        <a href="frontend/views/view_propietario.html">Perfil Propietario</a>
+        <a href="frontend/views/view_info.html">Página informativa</a>
+        <a href="frontend/views/view_encuesta.html">Encuesta</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="container mt-5 pt-5">
+        <h2>Buscar Actividades</h2>
+        <form id="search-form">
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="search-location">Ubicación (Estado costero)</label>
+                    <select id="search-location" name="location" class="form-select">
+                        <option value="" selected>Seleccione un estado costero</option>
+                        <option value="Baja California">Baja California</option>
+                        <option value="Sonora">Sonora</option>
+                        <option value="Sinaloa">Sinaloa</option>
+                        <option value="Nayarit">Nayarit</option>
+                        <option value="Jalisco">Jalisco</option>
+                        <option value="Colima">Colima</option>
+                        <option value="Michoacán">Michoacán</option>
+                        <option value="Guerrero">Guerrero</option>
+                        <option value="Oaxaca">Oaxaca</option>
+                        <option value="Veracruz">Veracruz</option>
+                        <option value="Tamaulipas">Tamaulipas</option>
+                        <option value="Yucatán">Yucatán</option>
+                        <option value="Quintana Roo">Quintana Roo</option>
+                        <option value="Campeche">Campeche</option>
+                        <option value="Chiapas">Chiapas</option>
+                        <option value="Tabasco">Tabasco</option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label for="search-category">Categoría</label>
+                    <select id="search-category" name="category" class="form-select">
+                        <option value="" selected>Seleccione una categoría</option>
+                        <option value="snorkel">Snorkel</option>
+                        <option value="buceo">Buceo</option>
+                        <option value="viaje por barco">Viaje por barco</option>
+                        <option value="liberacion">Liberación</option>
+                        <option value="fotografia marina">Fotografía marina</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+
+        <h2 class="mt-5">Resultados de la búsqueda</h2>
+        <div id="results" class="d-flex flex-wrap gap-3">
+            <!-- Las tarjetas de actividades aparecerán aquí -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

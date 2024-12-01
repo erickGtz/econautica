@@ -1,0 +1,55 @@
+/* Mensaje banner */
+.message-banner {
+    margin: auto;
+    margin-top: 10%;
+    background-color: #2091ad; /* Igual que la navbar */
+    height: 150px;
+    width: 85%;
+    border-radius: 30px;
+}
+
+.message-banner p {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Main content */
+.container {
+    margin-top: 120px; /* Ajuste para que el contenido no se superponga con la navbar */
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.card h3 {
+    margin: 0 0 10px;
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+.card button {
+    background-color: #004658;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #004658;
+}

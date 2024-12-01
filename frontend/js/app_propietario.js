@@ -1,7 +1,7 @@
 $(document).ready(function () {
     let edit = false;
     limpiarForm();
-    listarActividades();  // Cargar actividades al inicio
+    listarActividades(); 
 
     $('#activity-name').keyup(function () {
         const name = $(this).val();
@@ -84,6 +84,7 @@ $(document).ready(function () {
             costo: $('#activity-costo').val(),
             duracion: $('#activity-duration').val(),
             ubicacion: $('#activity-location').val(),
+            categoria: $('#activity-category').val(),
             descripcion: $('#activity-description').val(),
             img: $('#activity-img').val(),
         };
@@ -98,7 +99,6 @@ $(document).ready(function () {
                 : '../../backend/activity-edit.php';
 
             $.post(url, activityData, (response) => {
-                console.log(response);
                 const respuesta = JSON.parse(response);
                 let template = `
                     <li>Status: ${respuesta.status}</li>
@@ -132,6 +132,11 @@ $(document).ready(function () {
             return false;
         }
 
+        if (!activityData.categoria || activityData.categoria.trim() === '') {
+            alert('El campo categoria no puede estar vacío.');
+            return false;
+        }
+
         if (!activityData.img) {
             activityData.img = 'default.png';
         }
@@ -144,6 +149,7 @@ $(document).ready(function () {
         $('#activity-duration').val('');
         $('#activity-location').val('');
         $('#activity-description').val('');
+        $('#activity-category').val('');
         $('#activity-img').val('');
         $('#activityId').val('');
     }
@@ -164,6 +170,7 @@ $(document).ready(function () {
                         descripcion += '<li>Costo: ' + actividad.costo + '</li>';
                         descripcion += '<li>Duración: ' + actividad.duracion + '</li>';
                         descripcion += '<li>Descripción: ' + actividad.descripcion + '</li>';
+                        descripcion += '<li>Categoria: ' + actividad.categoria + '</li>';
                         descripcion += '<li>Ubicación: ' + actividad.ubicacion + '</li>';
 
                         template += `
@@ -192,7 +199,6 @@ $(document).ready(function () {
             const id = $(element).attr('activityId');
 
             $.post('../../backend/activity-delete.php', { id }, (response) => {
-                console.log(response);
                 let respuesta = JSON.parse(response);
                 let template = `
                     <li>Status: ${respuesta.status}</li>
@@ -217,6 +223,7 @@ $(document).ready(function () {
             $('#activity-costo').val(actividad.costo);
             $('#activity-duration').val(actividad.duracion);
             $('#activity-location').val(actividad.ubicacion);
+            $('#activity-category').val(actividad.categoria);
             $('#activity-description').val(actividad.descripcion);
             $('#activity-img').val(actividad.img);
             $('#activityId').val(actividad.ID);

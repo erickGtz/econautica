@@ -31,8 +31,8 @@ class Create_Activity extends DataBase
       if ($result->num_rows == 0) {
         // Inserta el nuevo producto si no existe
         $this->conexion->set_charset("utf8");
-        $sql = "INSERT INTO actividades (titulo, descripcion, ubicacion, duracion, costo, img, eliminado) VALUES 
-            ('{$actividad['titulo']}', '{$actividad['descripcion']}', '{$actividad['ubicacion']}', 
+        $sql = "INSERT INTO actividades (titulo, categoria, descripcion, ubicacion, duracion, costo, img, eliminado) VALUES 
+            ('{$actividad['titulo']}', '{$actividad['categoria']}', '{$actividad['descripcion']}', '{$actividad['ubicacion']}', 
             '{$actividad['duracion']}', {$actividad['costo']},'{$actividad['img']}', 0)";
 
         if ($this->conexion->query($sql)) {

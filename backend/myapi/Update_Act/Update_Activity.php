@@ -24,7 +24,7 @@ class Update_Activity extends Database
     // SE VERIFICA HABER RECIBIDO EL ID
     if (isset($jsonOBJ->id)) {
       // SE REALIZA LA QUERY DE BÚSQUEDA Y AL MISMO TIEMPO SE VALIDA SI HUBO RESULTADOS
-      $sql = "UPDATE actividades SET titulo='{$jsonOBJ->titulo}', descripcion='{$jsonOBJ->descripcion}',";
+      $sql = "UPDATE actividades SET titulo='{$jsonOBJ->titulo}', categoria='{$jsonOBJ->categoria}', descripcion='{$jsonOBJ->descripcion}',";
       $sql .="ubicacion='{$jsonOBJ->ubicacion}', costo={$jsonOBJ->costo}, duracion='{$jsonOBJ->duracion}',";
       $sql .="img='{$jsonOBJ->img}' WHERE ID={$jsonOBJ->id}";
       $this->conexion->set_charset("utf8");

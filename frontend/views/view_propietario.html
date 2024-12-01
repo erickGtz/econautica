@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +53,6 @@
             </select>
             <div class="validation-status"></div>
         </div>
-        
 
         <div>
             <label for="activity-description">Descripción</label>
@@ -64,10 +62,12 @@
 
         <div>
             <label for="activity-img">Imagen</label>
-            <input type="text" id="activity-img" name="img" />
+            <input type="file" id="activity-img" name="img" accept=".jpg, .jpeg, .png" />
             <div class="validation-status"></div>
-        </div>
+        </div>        
 
+        <input type="hidden" id="activityId" name="id" /> <!-- Campo oculto para editar -->
+        
         <button type="submit">Guardar Actividad</button>
     </form>
 
@@ -79,14 +79,13 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Detalles</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody id="activities"></tbody>
     </table>
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

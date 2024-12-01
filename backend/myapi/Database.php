@@ -1,5 +1,5 @@
 <?php
-namespace ECONAUTIC\MYAPI;
+namespace ECONAUTICA\MYAPI;
 
 abstract class Database
 {

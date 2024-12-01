@@ -1,12 +1,9 @@
 $(document).ready(function () {
-
     function inscribirse(activityId) {
         alert(`Te has inscrito a la actividad con ID: ${activityId}`);
     }
 
-    $('#search-form').submit(function (e) {
-        e.preventDefault();
-
+    function buscarActividades() {
         const location = $('#search-location').val();
         const category = $('#search-category').val();
 
@@ -36,6 +33,16 @@ $(document).ready(function () {
 
             $('#results').html(resultsHTML);
         });
+    }
+
+    // Lógica para enviar el formulario manualmente
+    $('#search-form').submit(function (e) {
+        e.preventDefault();
+        buscarActividades();
+    });
+
+    // Buscar automáticamente al cambiar cualquiera de los select
+    $('#search-location, #search-category').change(function () {
+        buscarActividades();
     });
 });
-

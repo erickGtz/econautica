@@ -4,16 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Econautica</title>
+    <style>
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .card h3 {
+            margin: 0 0 10px;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+        .card button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .card button:hover {
+            background-color: #0056b3;
+        }
+        #results {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+    </style>
 </head>
 <body>
     <h1>Econautica</h1>
     
     <a href="frontend/views/view_propietario.html">Perfil propietario</a>
 
-    <div>
-        
+    <h2>Buscar Actividades</h2>
+    <form id="search-form">
+        <div>
+            <label for="search-location">Ubicación (Estado costero)</label>
+            <select id="search-location" name="location">
+                <option value="" disabled selected>Seleccione un estado costero</option>
+                <option value="Baja California">Baja California</option>
+                <option value="Sonora">Sonora</option>
+                <option value="Sinaloa">Sinaloa</option>
+                <option value="Nayarit">Nayarit</option>
+                <option value="Jalisco">Jalisco</option>
+                <option value="Colima">Colima</option>
+                <option value="Michoacán">Michoacán</option>
+                <option value="Guerrero">Guerrero</option>
+                <option value="Oaxaca">Oaxaca</option>
+                <option value="Veracruz">Veracruz</option>
+                <option value="Tamaulipas">Tamaulipas</option>
+                <option value="Yucatán">Yucatán</option>
+                <option value="Quintana Roo">Quintana Roo</option>
+                <option value="Campeche">Campeche</option>
+                <option value="Chiapas">Chiapas</option>
+                <option value="Tabasco">Tabasco</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="search-category">Categoría</label>
+            <select id="search-category" name="category">
+                <option value="" disabled selected>Seleccione una categoría</option>
+                <option value="snorkel">Snorkel</option>
+                <option value="buceo">Buceo</option>
+                <option value="viaje por barco">Viaje por barco</option>
+                <option value="liberacion">Liberacion</option>
+                <option value="fotografia marina">Fotografia marina</option>
+            </select>
+        </div>
+
+        <button type="submit">Buscar</button>
+    </form>
+
+    <h2>Resultados de la búsqueda</h2>
+    <div id="results">
+        <!-- Las tarjetas de actividades aparecerán aquí -->
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 </body>
 </html>

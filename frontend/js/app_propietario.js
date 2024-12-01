@@ -78,49 +78,37 @@ $(document).ready(function () {
 
     $('#activity-form').submit((e) => {
         e.preventDefault();
-    
-        // Crear un objeto FormData
-        let formData = new FormData();
-        formData.append('titulo', $('#activity-name').val());
-        formData.append('costo', $('#activity-costo').val());
-        formData.append('duracion', $('#activity-duration').val());
-        formData.append('ubicacion', $('#activity-location').val());
-        formData.append('descripcion', $('#activity-description').val());
-    
-        // Agregar la imagen si se seleccionó una
-        const imgFile = $('#activity-img')[0].files[0];
-        if (imgFile) {
-            formData.append('img', imgFile);
-        }
-    
-        // Si estamos editando, agregamos el ID
+
+        let activityData = {
+            titulo: $('#activity-name').val(),
+            costo: $('#activity-costo').val(),
+            duracion: $('#activity-duration').val(),
+            ubicacion: $('#activity-location').val(),
+            descripcion: $('#activity-description').val(),
+            img: $('#activity-img').val(),
+        };
+
         if (edit) {
-            formData.append('id', $('#activityId').val());
+            activityData.id = $('#activityId').val();  // Agregar el ID si estamos editando
         }
-    
-        if (validarEntradas(formData)) {
+
+        if (validarEntradas(activityData)) {
             const url = edit === false
                 ? '../../backend/activity-add.php'
                 : '../../backend/activity-edit.php';
-    
-            $.ajax({
-                url: url,
-                type: 'POST',
-                data: formData,
-                processData: false, // No procesar los datos
-                contentType: false, // No establecer tipo de contenido
-                success: function (response) {
-                    const respuesta = JSON.parse(response);
-                    let template = `
-                        <li>Status: ${respuesta.status}</li>
-                        <li>Message: ${respuesta.message}</li>
-                    `;
-                    $('#activity-result').show();
-                    $('#activity-container').html(template);
-                    listarActividades();
-                    limpiarForm();
-                    edit = false;
-                }
+
+            $.post(url, activityData, (response) => {
+                console.log(response);
+                const respuesta = JSON.parse(response);
+                let template = `
+                    <li>Status: ${respuesta.status}</li>
+                    <li>Message: ${respuesta.message}</li>
+                `;
+                $('#activity-result').show();
+                $('#activity-container').html(template);
+                listarActividades();
+                limpiarForm();
+                edit = false;
             });
         }
     });
@@ -166,7 +154,6 @@ $(document).ready(function () {
             url: '../../backend/activity-list.php',
             type: 'GET',
             success: function (response) {
-                console.log(response);
                 const actividades = JSON.parse(response);
                 
                 if (Object.keys(actividades).length > 0) {
@@ -205,6 +192,7 @@ $(document).ready(function () {
             const id = $(element).attr('activityId');
 
             $.post('../../backend/activity-delete.php', { id }, (response) => {
+                console.log(response);
                 let respuesta = JSON.parse(response);
                 let template = `
                     <li>Status: ${respuesta.status}</li>

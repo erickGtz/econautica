@@ -1,39 +1,65 @@
 <?php
 namespace ECONAUTICA\MYAPI\INI_SES;
 
-require_once __DIR__ . '/../vendor/autoload.php';
-use ECONAUTICA\MYAPI\conexion;
+use ECONAUTICA\MYAPI\Database;
+require_once __DIR__ . '/../Database.php';
 
-class Login extends conexion
+class login extends Database
 {
-    public function autenticar($correo, $contrasena)
+    public function __construct($db, $user = 'root', $pass = 'fk1322')
     {
-        $sql = "SELECT * FROM usuarios WHERE correo = '$correo'";
+        $this->data = ['status' => 'error', 'message' => 'Error desconocido.'];
+        parent::__construct($db, $user, $pass);
+    }
+
+    public function autenticar($usuario)
+    {
+        header('Content-Type: application/json'); // Respuesta en JSON
+
+        // Validar que el objeto usuario tenga las claves necesarias
+        if (empty($usuario['correo']) || empty($usuario['contrasena'])) {
+            echo json_encode([
+                'success' => false,
+                'message' => 'El correo y la contraseña son obligatorios.'
+            ]);
+            return;
+        }
+
+        // Escapar las variables para evitar inyección SQL
+        $correo = $this->conexion->real_escape_string($usuario['correo']);
+        $contrasena = $usuario['contrasena'];
+
+        // Consulta para verificar si el usuario existe
+        $sql = "SELECT * FROM usuarios WHERE correo = '$correo' LIMIT 1";
         $result = $this->conexion->query($sql);
 
         if ($result->num_rows > 0) {
-            $usuario = $result->fetch_assoc();
-            if (password_verify($contrasena, $usuario['contrasena'])) {
+            $usuarioBD = $result->fetch_assoc();
+
+            // Verificar la contraseña
+            if (password_verify($contrasena, $usuarioBD['contrasena'])) {
                 session_start();
-                $_SESSION['usuario'] = $usuario;
-                header('Location: mis_actividades.html');
-                exit();
+                $_SESSION['usuario'] = $usuarioBD;
+
+                echo json_encode([
+                    'success' => true,
+                    'message' => 'Inicio de sesión exitoso.',
+                ]);
+                return;
             } else {
-                echo "Correo o contraseña incorrectos";
+                echo json_encode([
+                    'success' => false,
+                    'message' => 'Correo o contraseña incorrectos.'
+                ]);
+                return;
             }
         } else {
-            echo "Correo o contraseña incorrectos";
+            echo json_encode([
+                'success' => false,
+                'message' => 'Correo o contraseña incorrectos.'
+            ]);
+            return;
         }
-
-        $this->conexion->close();
     }
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $correo = $_POST['correo'];
-    $contrasena = $_POST['contrasena'];
-
-    $login = new Login('econautica');
-    $login->autenticar($correo, $contrasena);
 }
 ?>

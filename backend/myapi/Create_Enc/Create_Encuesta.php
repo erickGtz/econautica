@@ -6,7 +6,7 @@ require_once __DIR__ . '/../Database.php';
 
 class Create_Encuesta extends DataBase
 {
-  public function __construct($db, $user = 'root', $pass = '')
+  public function __construct($db, $user = 'root', $pass = 'fk1322')
   {
     $this->data = array();
     parent::__construct($db, $user, $pass);

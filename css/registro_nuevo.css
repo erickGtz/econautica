@@ -1,0 +1,108 @@
+/* Estilo general para la página */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* Estilo para el encabezado */
+header {
+  background-color: #004d66; /* Color similar al de la imagen */
+  color: white;
+}
+
+header h1 {
+  font-family: 'Roboto', sans-serif;
+}
+
+header nav a {
+  font-weight: 500;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 800px;
+  margin-top: 50px;
+}
+
+/* Título de la página */
+h2 {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  color: #004d66;
+  margin-bottom: 30px;
+}
+
+/* Estilo para las tarjetas */
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.form-control {
+  border-radius: 5px;
+  box-shadow: none;
+  font-size: 16px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.form-control:focus {
+  border-color: #004d66;
+  box-shadow: 0 0 5px rgba(0, 77, 102, 0.5);
+}
+
+/* Botón de registro */
+.btn-primary {
+  background-color: #004d66;
+  border-color: #004d66;
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #003b4d;
+  border-color: #003b4d;
+}
+
+/* Campos de formulario en una fila */
+.form-row {
+  margin-bottom: 20px;
+}
+
+/* Etiquetas de los campos */
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #004d66;
+}
+
+/* Estilo para el footer o pie de página */
+footer {
+  background-color: #f4f6f8;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* Estilo para los enlaces de navegación en el header */
+nav a {
+  font-size: 16px;
+  margin-right: 15px;
+}
+
+nav a:hover {
+  text-decoration: none;
+  font-weight: 600;
+}

@@ -14,7 +14,6 @@ class Create_Activity extends DataBase
 
   public function add($actividad)
   {
-    $bandera = 1;
     // Estructura de respuesta inicial
     $this->data = array(
       'status' => 'error',
@@ -26,7 +25,6 @@ class Create_Activity extends DataBase
       // Realiza la consulta para verificar si el producto ya existe
       $sql = "SELECT * FROM actividades WHERE titulo = '{$actividad['titulo']}' AND eliminado = 0";
       $result = $this->conexion->query($sql);
-      $bandera = 0;
 
       if ($result->num_rows == 0) {
         // Inserta el nuevo producto si no existe
@@ -45,13 +43,6 @@ class Create_Activity extends DataBase
       $result->free();
       $this->conexion->close();
     }
-    if($bandera == 1){
-          $this->data = array(
-      'status' => 'error',
-      'message' => 'No entre nunca'
-    );
-    }
-
   }
 }
 

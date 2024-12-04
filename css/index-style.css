@@ -1,17 +1,111 @@
 /* Mensaje banner */
+body {
+    background-color: #F2F2F2;
+}
+
 .message-banner {
     margin: auto;
-    margin-top: 10%;
-    background-color: #2091ad; /* Igual que la navbar */
+    padding-top: 50px;
+    margin-top: 6%;
+    position: relative;
     height: 150px;
     width: 85%;
     border-radius: 30px;
+    overflow: hidden;
 }
 
-.message-banner p {
+.message-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../backend/img/fondo-div.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+/* Capa de oscuridad */
+.message-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* Estilos para el enlace */
+.message-link {
+    font-style: italic;
     color: white;
-    font-size: 20px;
+    font-size: 35px;
     font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.message-link:hover {
+    color: #dadada;
+}
+
+/* Segundo banner de vacaciones */
+.vacation-banner {
+    margin: auto;
+    padding-top: 50px;
+    position: relative;
+    height: 150px;
+    width: 85%;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.vacation-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../backend/img/ecoturismo.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+/* Capa de oscuridad */
+.vacation-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+/* Estilo para el div de dashboard */
+.dashboard-placeholder {
+    border: 2px solid #004658;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+    color: #004658;
+    font-weight: bold;
+}
+
+/* Estilo para el párrafo de vacaciones */
+.message-text {
+    font-style: italic;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 /* Main content */
@@ -24,32 +118,84 @@ h2 {
     font-weight: bold;
 }
 
+/* Estilos para los formularios */
+.forms{
+    margin: auto;
+    width: 60%;
+}
+
+.form-select{
+    padding: 10px;
+    padding-left: 15px;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.form-label {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.row.mb-3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+button[type="submit"] {
+    margin-top: 15px;
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#results{
+    margin-top: 25px;
+}
+
 .card {
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    height: 100%; /* Asegurar altura consistente */
 }
 
-.card h3 {
-    margin: 0 0 10px;
+.card-header {
+    background-color: #004658;
+    color: #ffffff;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px 5px 0 0;
 }
 
-.card p {
+.card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.details p {
+    text-align: left;
     margin: 5px 0;
 }
 
 .card button {
+    margin: auto;
+    margin-top: 10px;
     background-color: #004658;
     color: white;
     border: none;
     padding: 10px 15px;
     border-radius: 3px;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .card button:hover {
-    background-color: #004658;
+    background-color: #00333d;
 }

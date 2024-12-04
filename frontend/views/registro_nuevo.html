@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoNautica - Registro</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="registro_nuevo.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="bg-dark text-white py-3">
+      <div class="container d-flex justify-content-between align-items-center">
+        <h1 class="h3 mb-0">EcoNautica</h1>
+        <nav>
+          <a href="mis_actividades.html" class="text-white mr-3">Mis Actividades</a>
+          <a href="login.html" class="text-white">Iniciar sesión</a>
+          <span class="text-white mx-1">|</span>
+          <a href="registro_nuevo.html" class="text-white">Registrarse</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="container my-5">
+      <h2 class="mb-4 text-center">Registro</h2>
+      <div class="card shadow">
+        <div class="card-body">
+          <form id="formularioRegistro" action="registro_nuevo.php" method="post" onsubmit="return validarFormulario()">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="apellidoPaterno">Apellido Paterno:</label>
+                <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno" placeholder="Apellido Paterno" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="apellidoMaterno">Apellido Materno:</label>
+                <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno" placeholder="Apellido Materno" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="correo">Correo:</label>
+                <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="confirmarContrasena">Confirmar Contraseña:</label>
+                <input type="password" class="form-control" id="confirmarContrasena" name="confirmarContrasena" placeholder="Confirmar Contraseña" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      function validarFormulario() {
+        var nombre = document.getElementById('nombre').value;
+        var apellidoPaterno = document.getElementById('apellidoPaterno').value;
+        var apellidoMaterno = document.getElementById('apellidoMaterno').value;
+        var telefono = document.getElementById('telefono').value;
+        var correo = document.getElementById('correo').value;
+        var contrasena = document.getElementById('contrasena').value;
+        var confirmarContrasena = document.getElementById('confirmarContrasena').value;
+
+        if (nombre === '' || apellidoPaterno === '' || apellidoMaterno === '' || telefono === '' || correo === '' || contrasena === '' || confirmarContrasena === '') {
+          alert('Todos los campos son obligatorios');
+          return false;
+        }
+
+        if (contrasena !== confirmarContrasena) {
+          alert('Las contraseñas no coinciden');
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>

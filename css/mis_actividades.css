@@ -1,0 +1,31 @@
+/* General */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  h2 {
+    color: #003B4D;
+    font-weight: 600;
+  }
+  
+  /* Actividades */
+  .activity-item {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .card-title {
+    color: #003B4D;
+    font-weight: 600;
+  }
+  
+  .card-text {
+    color: #555;
+  }
+  
+  button {
+    font-size: 16px;
+  }
+  

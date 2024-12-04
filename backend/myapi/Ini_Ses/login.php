@@ -17,24 +17,25 @@ class login extends Database
     {
         $this->data = array(
             'status' => 'error',
-            'message' => 'Error en la consulta'
+            'message' => 'No hay usuario'
         );
 
-        // Se prepara la consulta para buscar el ID del usuario
-        $sql = "SELECT id FROM usuarios WHERE correo = '{$usuario['correo']}' AND contrasena = '{$usuario['contrasena']}' ";
+        // Se prepara la consulta para buscar el ID y el tipo del usuario
+        $sql = "SELECT id, tipo FROM usuarios WHERE correo = '{$usuario['correo']}' AND contrasena = '{$usuario['contrasena']}' ";
         $this->conexion->set_charset("utf8");
         $result = $this->conexion->query($sql);
 
         // Si la consulta retorna un resultado
         if ($result && $result->num_rows > 0) {
-            // Obtiene el ID del usuario
+            // Obtiene el ID y tipo del usuario
             $row = $result->fetch_assoc();
             $this->data['status'] = "success";
-            $this->data['message'] = "Se encontro al usuario";
             $this->data['id'] = $row['id'];  // Almacena el ID en la respuesta
+            $this->data['tipo'] = $row['tipo'];  // Almacena el tipo en la respuesta
 
-            // Guardar el ID en la sesión
+            // Guardar el ID y tipo en la sesión
             $_SESSION['usuario_id'] = $row['id'];
+            $_SESSION['usuario_tipo'] = $row['tipo'];
         } else {
             // Si no se encuentra el usuario
             $this->data['message'] = "No se encontró al usuario.";
@@ -47,6 +48,12 @@ class login extends Database
     public function obtenerIdSesion()
     {
         return isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
+    }
+
+    // Función para obtener el tipo desde la sesión (si es necesario)
+    public function obtenerTipoSesion()
+    {
+        return isset($_SESSION['usuario_tipo']) ? $_SESSION['usuario_tipo'] : null;
     }
 }
 ?>

@@ -14,7 +14,17 @@ class Read_Activity extends Database
 
     public function list()
     {
-        if ($result = $this->conexion->query("SELECT * FROM actividades WHERE eliminado = 0")) {
+        session_start(); // Asegúrate de iniciar la sesión
+        if (!isset($_SESSION['usuario_id'])) {
+            die('Error: No se encontró la sesión del usuario.');
+        }
+
+        $idPropietario = $_SESSION['usuario_id']; // Obtén el ID del propietario desde la sesión
+
+        // Modifica la consulta para filtrar por `id_propietario`
+        $sql = "SELECT * FROM actividades WHERE eliminado = 0 AND id_propietario = $idPropietario";
+
+        if ($result = $this->conexion->query($sql)) {
             $rows = $result->fetch_all(MYSQLI_ASSOC);
 
             if (!is_null($rows)) {

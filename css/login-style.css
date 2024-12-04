@@ -27,7 +27,6 @@ body{
   border-radius: 30px;
     padding: 10px 15px;
     font-size: 16px;
-    font-style: italic;
 }
 
 
@@ -101,7 +100,6 @@ body{
   border-radius: 30px; /* Sin bordes adicionales */
   background-color: #F2F2F2; /* Mismo fondo que el contenedor */
   font-size: 18px;
-  font-style: italic;
   border-left: none; /* Elimina el borde izquierdo del input */
 }
 
@@ -109,7 +107,7 @@ body{
 .input-group-text i {
   color: #004658; /* Azul oscuro para destacar */
   font-size: 16px;
-  padding-left: 10px;
+  padding-left: 15px;
 }
 
 /* Estilo del input al obtener foco */

@@ -31,6 +31,7 @@ CREATE TABLE `actividades` (
   `id` int(11) NOT NULL,
   `id_propietario` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
+  `categoria` varchar(255) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
   `ubicacion` varchar(255) NOT NULL,
   `costo` float(8,2) NOT NULL,

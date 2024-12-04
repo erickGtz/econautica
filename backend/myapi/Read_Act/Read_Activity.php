@@ -6,7 +6,7 @@ require_once __DIR__ . '/../Database.php';
 
 class Read_Activity extends Database
 {
-    public function __construct($db, $user = 'root', $pass = 'fk1322')
+    public function __construct($db, $user = 'root', $pass = '')
     {
         $this->data = array();
         parent::__construct($db, $user, $pass);

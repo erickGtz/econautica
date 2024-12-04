@@ -4,9 +4,9 @@ namespace ECONAUTICA\MYAPI\INI_SES;
 use ECONAUTICA\MYAPI\Database;
 require_once __DIR__ . '/../Database.php';
 
-class login extends Database
+class Login extends Database
 {
-    public function __construct($db, $user = 'root', $pass = 'fk1322')
+    public function __construct($db, $user = 'root', $pass = '')
     {
         $this->data = ['status' => 'error', 'message' => 'Error desconocido.'];
         parent::__construct($db, $user, $pass);

@@ -3,6 +3,16 @@ body {
     background-color: #F2F2F2;
 }
 
+/* Estilo del footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #004658;
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
 .message-banner {
     margin: auto;
     padding-top: 50px;

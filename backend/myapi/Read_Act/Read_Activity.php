@@ -34,7 +34,7 @@ class Read_Activity extends Database
     public function single($id)
     {
         if (isset($id)) {
-            if ($result = $this->conexion->query("SELECT * FROM actividades WHERE ID = {$id}")) {
+            if ($result = $this->conexion->query("SELECT * FROM actividades WHERE id = {$id}")) {
                 $row = $result->fetch_assoc();
 
                 if (!is_null($row)) {

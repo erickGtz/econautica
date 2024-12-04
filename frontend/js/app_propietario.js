@@ -6,7 +6,7 @@ $(document).ready(function () {
     $('#activity-name').keyup(function () {
         const name = $(this).val();
         const isValid = name && name.length <= 100;
-        const message = !name
+        const message = !namegit 
             ? 'Nombre de la actividad requerido'
             : 'El nombre debe ser menor o igual a 100 caracteres';
     
@@ -15,8 +15,8 @@ $(document).ready(function () {
     
     $('#activity-costo').blur(function () {
         const costo = parseFloat($(this).val());
-        const isValid = costo > 0;
-        const message = isValid ? '' : 'El costo debe ser un número mayor a 0';
+        const isValid = costo > 99;
+        const message = isValid ? '' : 'El costo debe ser un número mayor a 99';
     
         updateFieldState($(this), isValid, message);
     });
@@ -45,6 +45,22 @@ $(document).ready(function () {
             ? 'Ubicación requerida'
             : !isValid
                 ? 'Selecciona un estado costero válido'
+                : '';
+    
+        updateFieldState($(this), isValid, message);
+    });
+
+    $('#activity-category').blur(function () {
+        const category = $(this).val();
+        const categorias = [
+            "snorkel", "buceo", "viaje por barco", "liberacion", "fotografia marina"
+        ];
+    
+        const isValid = categorias.includes(category);
+        const message = !category
+            ? 'Categoría requerida'
+            : !isValid
+                ? 'Seleccione una categoría válida'
                 : '';
     
         updateFieldState($(this), isValid, message);
@@ -174,8 +190,8 @@ $(document).ready(function () {
                         descripcion += '<li>Ubicación: ' + actividad.ubicacion + '</li>';
 
                         template += `
-                            <tr activityId="${actividad.ID}">
-                                <td>${actividad.ID}</td>
+                            <tr activityId="${actividad.id}">
+                                <td>${actividad.id}</td>
                                 <td><a href="#" class="activity-item">${actividad.titulo}</a></td>
                                 <td><ul>${descripcion}</ul></td>
                                 <td>
@@ -226,7 +242,7 @@ $(document).ready(function () {
             $('#activity-category').val(actividad.categoria);
             $('#activity-description').val(actividad.descripcion);
             $('#activity-img').val(actividad.img);
-            $('#activityId').val(actividad.ID);
+            $('#activityId').val(actividad.id);
             edit = true;
         });
     });

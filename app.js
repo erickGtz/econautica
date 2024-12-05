@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
   function buscarActividades() {
     const location = $('#search-location').val();
@@ -52,18 +54,95 @@ $(document).ready(function () {
     );
   }
 
-$(document).on('click', '.activity-rev', function (e) {
+  $(document).on('click', '.activity-rev', function (e) {
     // Obtén el ID y costo de la actividad desde los atributos data
     const activityId = $(this).data('activity-id');
     const activityCosto = $(this).data('activity-costo');
-    
+
     // Redirige a view_reserva con ID y costo como parámetros en la URL
     window.location.href = `./frontend/views/view_reserva.html?activity_id=${activityId}&activity_costo=${activityCosto}`;
-});
-
-
+  });
 
   $('#search-location, #search-category').change(function () {
     buscarActividades();
   });
+/*
+  // Crear gráfica 2: Participación en turismo sostenible
+  function crearGraficaReservas(data) {
+    const ctx = document.getElementById('chartReservas').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: Object.keys(data),
+        datasets: [
+          {
+            label: 'Número de reservas',
+            data: Object.values(data),
+            borderColor: 'rgba(255, 99, 132, 1)',
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            tension: 0.4,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Participación en turismo sostenible',
+          },
+        },
+      },
+    });
+  }*/
+
+  // Llamadas AJAX para obtener datos del backend
+  
+function crearGraficaActividadesPorEstado(data) {
+    const ctx = document.getElementById('chartActividades').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: data.map((item) => item.estado), // Extrae los nombres de los estados
+        datasets: [
+          {
+            label: 'Número de actividades',
+            data: data.map((item) => item.total), // Extrae los totales de actividades
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            tension: 0.4,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Actividades sostenibles por estado',
+          },
+        },
+      },
+    });
+  }
+  // Llamada AJAX
+  $.ajax({
+    url: './backend/graficas-getData.php',
+    type: 'GET',
+    data: { chartType: 'activities_by_state' },
+    success: function (response) {
+      const respuesta = JSON.parse(response);
+      console.log(respuesta); // Aquí verificamos la respuesta
+      crearGraficaActividadesPorEstado(respuesta); // Asegúrate de que los datos estén en formato JSON
+    },
+    error: function (xhr, status, error) {
+      console.error('Error:', error);
+    },
+  });
+
+  /*
+    $.get('./backend/data-reservas.php', function (response) {
+        const data = JSON.parse(response);
+        crearGraficaReservas(data);
+    });*/
 });

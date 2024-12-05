@@ -92,4 +92,36 @@ class Read_Activity extends Database
     $this->conexion->close();
 }
 
+public function get_data_for_charts($chartType)
+    {
+        if ($chartType === 'activities_by_state') {
+            $sql = "
+                SELECT ubicacion AS estado, COUNT(*) AS total
+                FROM actividades
+                WHERE eliminado = 0
+                GROUP BY ubicacion
+                ORDER BY total DESC
+            ";
+        } elseif ($chartType === 'reservations_by_state') {
+            $sql = "
+                SELECT a.ubicacion AS estado, COUNT(r.id) AS total
+                FROM reservas r
+                JOIN actividades a ON r.id_actividad = a.id
+                WHERE r.eliminado = 0
+                GROUP BY a.ubicacion
+                ORDER BY total DESC
+            ";
+        } else {
+            return []; // Si no se reconoce el tipo de gráfico, devuelve un array vacío
+        }
+
+        if ($result = $this->conexion->query($sql)) {
+            $this->data = $result->fetch_all(MYSQLI_ASSOC);
+            $result->free();
+            return $this->data;
+        } else {
+            die('Query Error: ' . mysqli_error($this->conexion));
+        }
+    }
+
 }

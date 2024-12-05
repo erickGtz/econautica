@@ -26,7 +26,7 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
                 <div class="container-fluid">
                     <?php if ($usuario_logueado): ?>
                         <!-- Si está logueado, solo mostrar Mis Actividades y Cerrar sesión -->
-                        <a class="nav-link" href="mis_actividades.php">Mis Actividades</a>
+                        <a class="nav-link" href="./frontend/views/view_actividades.html">Mis Actividades</a>
                     <?php endif; ?>
                     <div class="navbar-collapse d-flex justify-content-center">
                         <span class="navbar-title"><a href="./index.php">Econautica</a></span>
@@ -37,9 +37,9 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
                             <a class="nav-link" href="backend/logout.php">Cerrar Sesión</a>
                         <?php else: ?>
                             <!-- Si no está logueado, mostrar Iniciar sesión y Registrarse -->
-                            <a class="nav-link" href="frontend/views/view_login.html">Iniciar Sesión</a>
+                            <a class="nav-link" href="./frontend/views/view_login.html">Iniciar Sesión</a>
                             <span class="navbar-text">|</span>
-                            <a class="nav-link" href="frontend/views/registro_nuevo.html">Registrarse</a>
+                            <a class="nav-link" href="./frontend/views/registro_nuevo.html">Registrarse</a>
                         <?php endif; ?>
                     </div>
                 </div>

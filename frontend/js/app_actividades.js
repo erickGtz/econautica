@@ -1,106 +1,85 @@
 $(document).ready(function () {
-    let edit = false;
-    limpiarForm();
-    listarActividades();
+  listarActividades();
 
-    $('#activity-name').keyup(function () {
-        const name = $(this).val();
-        const isValid = name && name.length <= 100;
-        const message = !name
-            ? 'Nombre de la actividad requerido'
-            : 'El nombre debe ser menor o igual a 100 caracteres';
+  function listarActividades() {
+    $.ajax({
+      url: '../../backend/reserva-list.php', // Obtener las reservas del usuario
+      type: 'GET',
+      success: function (response) {
+        const reservas = JSON.parse(response); // Parsear la respuesta JSON
+        console.log(reservas);
 
-        updateFieldState($(this), isValid, message);
-    });
+        if (reservas.length > 0) {
+          let template = '';
 
-    $('#activity-costo').blur(function () {
-        const costo = parseFloat($(this).val());
-        const isValid = costo > 0;
-        const message = isValid ? '' : 'El costo debe ser un número mayor a 0';
+          reservas.forEach((reserva) => {
+            if (reserva.eliminado === "0") { // Filtrar solo reservas activas
+              // Llamar al backend para obtener los detalles de la actividad
+              $.post('../../backend/activity-single.php', { id: reserva.id_actividad }, function (activityResponse) {
+                const actividad = JSON.parse(activityResponse);
 
-        updateFieldState($(this), isValid, message);
-    });
+                // Construir la tarjeta con información de la actividad y reserva
+                template += `
+                  <div class="col-md-4">
+                    <div class="card mb-3">
+                      <img src="../../backend/img/${actividad.img}" class="card-img-top" alt="${actividad.titulo}">
+                      <div class="card-title">
+                        <h4>${actividad.titulo}</h4>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          <strong>Fecha:</strong> ${reserva.fecha} <br>
+                          <strong>Personas:</strong> ${reserva.personas} <br>
+                          <strong>Total:</strong> $${parseFloat(reserva.total).toFixed(2)} <br>
+                          <strong>Ubicación:</strong> ${actividad.ubicacion} <br>
+                          <strong>Categoría:</strong> ${actividad.categoria} <br>
+                          <strong>Descripción:</strong> ${actividad.descripcion}
+                        </p>
+                        <button class="btn btn-danger btn-sm eliminar-actividad" data-id="${reserva.id}">
+                          Eliminar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                `;
 
-    $('#activity-duration').blur(function () {
-        const duration = $(this).val();
-        const regex = /^(\d+\s*hora(s?)\s*)?(\d+\s*min(s?)\s*)?$/i;
-        const isValid = duration && regex.test(duration);
-        const message = !duration
-            ? 'Duración requerida'
-            : 'Formato inválido. Ejemplo: "1 hora 33 min" o "45 min"';
-
-        updateFieldState($(this), isValid, message);
-    });
-
-    $('#activity-location').blur(function () {
-        const location = $(this).val();
-        const isValid = location && location.length <= 100;
-        const message = !location
-            ? 'Ubicación requerida'
-            : 'La ubicación debe ser menor o igual a 100 caracteres';
-
-        updateFieldState($(this), isValid, message);
-    });
-
-    $('#activity-form').submit(function (e) {
-        e.preventDefault();
-        const postData = {
-            name: $('#activity-name').val(),
-            costo: $('#activity-costo').val(),
-            duration: $('#activity-duration').val(),
-            location: $('#activity-location').val(),
-            description: $('#activity-description').val(),
-            id: $('#activity-id').val()
-        };
-
-        const url = edit === false ? 'activity-add.php' : 'activity-edit.php';
-        $.post(url, postData, function (response) {
-            listarActividades();
-            limpiarForm();
-            edit = false;
-        });
-    });
-
-    function listarActividades() {
-        $.ajax({
-            url: 'activity-list.php',
-            type: 'GET',
-            success: function (response) {
-                const actividades = JSON.parse(response);
-                let template = '';
-                actividades.forEach(actividad => {
-                    template += `
-                        <tr activityId="${actividad.id}">
-                            <td>${actividad.name}</td>
-                            <td>${actividad.costo}</td>
-                            <td>${actividad.duration}</td>
-                            <td>${actividad.location}</td>
-                            <td>${actividad.description}</td>
-                            <td>
-                                <button class="activity-edit btn btn-primary">Editar</button>
-                                <button class="activity-delete btn btn-danger">Eliminar</button>
-                            </td>
-                        </tr>
-                    `;
-                });
-                $('#activities').html(template);
+                // Actualizar el contenedor después de cada llamada
+                $('#actividadesContainer').html(template);
+              });
             }
-        });
-    }
-
-    function limpiarForm() {
-        $('#activity-form').trigger('reset');
-        $('#activity-id').val('');
-    }
-
-    function updateFieldState($field, isValid, message) {
-        const $feedback = $field.siblings('.invalid-feedback');
-        if (isValid) {
-            $field.removeClass('is-invalid').addClass('is-valid');
-            $feedback.text('');
+          });
         } else {
-            $field.removeClass('is-valid').addClass('is-invalid');
-            $feedback.text(message);
+          $('#actividadesContainer').html('<p>No tienes actividades reservadas.</p>');
         }
+      },
+      error: function (xhr, status, error) {
+        console.error('Error al cargar las actividades:', error);
+        $('#actividadesContainer').html('<p>Error al cargar las actividades.</p>');
+      },
+    });
+  }
+
+  // Manejar el clic en el botón "Eliminar"
+  $(document).on('click', '.eliminar-actividad', function () {
+    const reservaId = $(this).data('id');
+    if (confirm('¿Estás seguro de que quieres eliminar esta reserva?')) {
+      $.ajax({
+        url: '../../backend/reserva-delete.php', // Ruta al script de eliminación
+        type: 'POST',
+        data: { id: reservaId },
+        success: function (response) {
+          const resultado = JSON.parse(response);
+          if (resultado.status === 'success') {
+            alert('Reserva eliminada con éxito.');
+            listarActividades(); // Refrescar la lista de actividades
+          } else {
+            alert('Error al eliminar la reserva: ' + resultado.message);
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error('Error al eliminar la reserva:', error);
+        },
+      });
     }
+  });
 });

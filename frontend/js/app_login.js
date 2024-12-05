@@ -10,7 +10,7 @@ $(document).ready(function () {
         };
 
         // Realizar una solicitud POST a usuario-login.php
-        $.post('../../backend/usuario-login.php', postData, (response) => {
+        $.post('../../backend/user-login.php', postData, (response) => {
             const respuesta = JSON.parse(response);
             if (respuesta.status === "success") {
                 console.log("ID del usuario: " + respuesta.id);

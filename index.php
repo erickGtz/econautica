@@ -34,12 +34,12 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
                     <div class="navbar-nav ml-auto">
                         <?php if ($usuario_logueado): ?>
                             <!-- Si está logueado, mostrar el enlace para Cerrar sesión -->
-                            <a class="nav-link" href="backend/logout.php">Cerrar Sesión</a>
+                            <a class="nav-link" href="./backend/logout.php">Cerrar Sesión</a>
                         <?php else: ?>
                             <!-- Si no está logueado, mostrar Iniciar sesión y Registrarse -->
                             <a class="nav-link" href="./frontend/views/view_login.html">Iniciar Sesión</a>
                             <span class="navbar-text">|</span>
-                            <a class="nav-link" href="./frontend/views/registro_nuevo.html">Registrarse</a>
+                            <a class="nav-link" href="./frontend/views/view_registro.html">Registrarse</a>
                         <?php endif; ?>
                     </div>
                 </div>

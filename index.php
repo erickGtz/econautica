@@ -55,7 +55,7 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
         </div>
 
         <!-- Div con borde para el Dashboard -->
-        <div class="dashboard-placeholder text-center border border-secondary p-4 mb-4">
+        <div class="dashboard-placeholder text-center border border-secondary mb-4">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">

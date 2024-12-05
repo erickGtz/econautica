@@ -66,35 +66,36 @@ $(document).ready(function () {
   $('#search-location, #search-category').change(function () {
     buscarActividades();
   });
-/*
+
   // Crear gráfica 2: Participación en turismo sostenible
   function crearGraficaReservas(data) {
-    const ctx = document.getElementById('chartReservas').getContext('2d');
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: Object.keys(data),
-        datasets: [
-          {
-            label: 'Número de reservas',
-            data: Object.values(data),
-            borderColor: 'rgba(255, 99, 132, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            tension: 0.4,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Participación en turismo sostenible',
-          },
+  const ctx = document.getElementById('chartReservas').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: data.map((item) => item.estado), // Extrae los nombres de los estados
+      datasets: [
+        {
+          label: 'Número de reservas',
+          data: data.map((item) => parseInt(item.total)), // Convierte 'total' a número
+          borderColor: 'rgba(255, 99, 132, 1)',
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          tension: 0.4,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Participación en turismo sostenible',
         },
       },
-    });
-  }*/
+    },
+  });
+}
+
 
   // Llamadas AJAX para obtener datos del backend
   
@@ -134,6 +135,20 @@ function crearGraficaActividadesPorEstado(data) {
       const respuesta = JSON.parse(response);
       console.log(respuesta); // Aquí verificamos la respuesta
       crearGraficaActividadesPorEstado(respuesta); // Asegúrate de que los datos estén en formato JSON
+    },
+    error: function (xhr, status, error) {
+      console.error('Error:', error);
+    },
+  });
+
+  $.ajax({
+    url: './backend/graficas-getData.php',
+    type: 'GET',
+    data: { chartType: 'reservations_by_state' },
+    success: function (response) {
+      const respuesta = JSON.parse(response);
+      console.log(respuesta); // Aquí verificamos la respuesta
+      crearGraficaReservas(respuesta); // Asegúrate de que los datos estén en formato JSON
     },
     error: function (xhr, status, error) {
       console.error('Error:', error);

@@ -121,7 +121,7 @@ $(document).ready(function () {
             alert('¡Gracias por completar la encuesta!');
 
             // Opcional: redirigir al usuario o limpiar el formulario
-            // window.location.href = '../../index.html';
+            window.location.href = '../../index.php';
             // $('#encuesta-form')[0].reset();
         });
     });

@@ -18,7 +18,7 @@ $(document).ready(function () {
                 // Redirigir según el tipo de usuario
                 if (respuesta.tipo == 0) {
                     // Redirigir a index si es turista
-                    window.location.href = "../../index.html";
+                    window.location.href = "../../index.php";
                 } else if (respuesta.tipo == 1) {
                     // Redirigir a view_propietario si es propietario
                     window.location.href = "../views/view_propietario.html";

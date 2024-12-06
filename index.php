@@ -55,21 +55,21 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
         </div>
 
         <!-- Div con borde para el Dashboard -->
-        <div class="dashboard-placeholder text-center border border-secondary mb-4">
-            <div class="container">
+        <div class="dashboard-placeholder text-center ">
+            <div class="container mt-5 mb-5">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4 mt-5">
                         <canvas id="chartActividades" height="150"></canvas>
                     </div>
-                    <div class="col-md-6">
+
+                    <div class="col-md-4">
+                        <canvas id="chartConciencia" class="pastel"></canvas>
+                    </div>
+                    <div class="col-md-4 mt-5">
                         <canvas id="chartReservas" height="150"></canvas>
                     </div>
                 </div>
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        <canvas id="chartTercera" height="150"></canvas>
-                    </div>
-                </div>
+
             </div>
 
         </div>
@@ -138,8 +138,7 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"
                 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="app.js"></script>
     </body>
 

@@ -16,11 +16,13 @@ h1 {
 
 /* Formulario */
 form {
+    margin-top: 20px; 
     background-color: #f8f9fa;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
+    max-height: 100%;
 }
 
 form h3 {
@@ -82,6 +84,8 @@ form button:hover {
 
 /* Tabla */
 table {
+    margin-left: 40px;
+    max-height: 100%;
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;

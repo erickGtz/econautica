@@ -2,6 +2,7 @@ $(document).ready(function () {
   let edit = false;
   limpiarForm();
   listarActividades();
+  recuperarDatos();
 
   $('#activity-name').keyup(function () {
     const name = $(this).val();
@@ -197,7 +198,6 @@ $(document).ready(function () {
       type: 'GET',
       success: function (response) {
         const actividades = JSON.parse(response);
-        console.log(actividades);
 
         if (Object.keys(actividades).length > 0) {
           let template = '';
@@ -268,4 +268,102 @@ $(document).ready(function () {
       edit = true;
     });
   });
+
+  function recuperarDatos() {
+    $.ajax({
+      url: '../../backend/graficas-getData-propietario.php',
+      type: 'GET',
+      success: function (response) {
+        const data = JSON.parse(response); // Convierte la respuesta JSON a un objeto JavaScript
+
+        // Llama a las funciones de graficación con los datos obtenidos
+        renderTopActivitiesChart(data.top_activities);
+        renderMonthlyIncomeChart(data.monthly_income);
+      },
+      error: function (error) {
+        console.error('Error al recuperar datos:', error);
+      },
+    });
+  }
+
+  function renderTopActivitiesChart(activities) {
+    const labels = activities.map((a) => a.actividad); // Nombres de las actividades
+    const values = activities.map((a) => parseInt(a.total_reservas, 10)); // Total de reservas como números
+
+    const ctx = document.getElementById('topActivitiesChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar', // Gráfico de barras
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Reservas',
+            data: values,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Top 10 Actividades con Más Reservas',
+            font: {
+              size: 18,
+            },
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
+
+  // Llamadas AJAX para obtener datos del backend
+
+  function renderMonthlyIncomeChart(monthlyIncome) {
+    const labels = monthlyIncome.map((m) => m.mes); // Meses
+    const values = monthlyIncome.map((m) => parseFloat(m.ingresos_totales)); // Ingresos totales como números
+
+    const ctx = document.getElementById('monthlyIncomeChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line', // Gráfico de línea
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Ingresos ($)',
+            data: values,
+            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+            borderColor: 'rgba(153, 102, 255, 1)',
+            borderWidth: 2,
+            tension: 0.3,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Ingresos Totales por Mes',
+            font: {
+              size: 18,
+            },
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
 });

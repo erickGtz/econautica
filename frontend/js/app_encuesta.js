@@ -75,8 +75,26 @@ $(document).ready(function () {
 
     $('#survey-container').html(renderFirstBlock());
 
+    // Validar que todas las preguntas tengan respuesta
+    const validateForm = (form) => {
+        let isValid = true;
+        $(form).find('input[type="radio"]').each(function () {
+            const name = $(this).attr('name');
+            if ($(`input[name="${name}"]:checked`).length === 0) {
+                isValid = false;
+                return false; // Salir del bucle
+            }
+        });
+        return isValid;
+    };
+
     // Cambiar al segundo bloque
     $(document).on('click', '#continue', function () {
+        if (!validateForm('#encuesta-form')) {
+            alert('Por favor, responde todas las preguntas antes de continuar.');
+            return;
+        }
+
         const firstBlockData = $('#encuesta-form').serializeArray();
         firstBlockData.forEach((item) => {
             allResponses[item.name] = item.value;
@@ -88,6 +106,11 @@ $(document).ready(function () {
     // Manejar envío del formulario
     $(document).on('submit', '#encuesta-form', function (e) {
         e.preventDefault();
+
+        if (!validateForm('#encuesta-form')) {
+            alert('Por favor, responde todas las preguntas antes de enviar.');
+            return;
+        }
 
         const secondBlockData = $(this).serializeArray();
 
@@ -121,7 +144,7 @@ $(document).ready(function () {
             alert('¡Gracias por completar la encuesta!');
 
             // Opcional: redirigir al usuario o limpiar el formulario
-            // window.location.href = '../../index.html';
+            window.location.href = '../../index.php';
             // $('#encuesta-form')[0].reset();
         });
     });

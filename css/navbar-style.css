@@ -10,6 +10,17 @@
     color: #ffffff;
 }
 
+.navbar-title a {
+    font-style: italic;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar-title a:hover {
+    color: #d0d0d0;
+    text-decoration: none;
+}
+
 .navbar-brand {
     font-weight: bold;
 }

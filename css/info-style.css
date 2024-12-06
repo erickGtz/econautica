@@ -1,0 +1,94 @@
+/* Estilos generales */
+body {
+    background-color: #F2F2F2;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Espaciado general del contenido */
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+/* Estilo del encabezado */
+header {
+    background-color: #F2F2F2;
+    
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+  color: #004658;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Secciones */
+section {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+section h2 {
+    color: #004658;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+section p, section li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+section .highlight {
+    color: #004658;
+    font-weight: bold;
+}
+
+/* Listas */
+ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+ul li {
+    list-style-type: disc;
+}
+
+/* Estilo del footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #004658;
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Adaptabilidad */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    section h2 {
+        font-size: 20px;
+    }
+
+    section p, section li {
+        font-size: 14px;
+    }
+}

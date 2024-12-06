@@ -46,7 +46,7 @@ class Create_Encuesta extends DataBase
     $this->conexion->set_charset("utf8");
 
     // Preparar la consulta para insertar las respuestas
-    $sql = "INSERT INTO respuestas_encuesta (usuario_ID, q1, q2, q3, q4, q5, q6, q7, q8, q9)
+    $sql = "INSERT INTO encuestas (id_usuario, q1, q2, q3, q4, q5, q6, q7, q8, q9)
             VALUES ($usuarioId, 
                     '{$encuestaData['q1']}', 
                     '{$encuestaData['q2']}', 

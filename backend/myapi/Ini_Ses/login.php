@@ -2,9 +2,10 @@
 namespace ECONAUTICA\MYAPI\INI_SES;
 
 use ECONAUTICA\MYAPI\Database;
+session_start();  // Inicia la sesión
 require_once __DIR__ . '/../Database.php';
 
-class Login extends Database
+class login extends Database
 {
     public function __construct($db, $user = 'root', $pass = '')
     {
@@ -14,52 +15,45 @@ class Login extends Database
 
     public function autenticar($usuario)
     {
-        header('Content-Type: application/json'); // Respuesta en JSON
+        $this->data = array(
+            'status' => 'error',
+            'message' => 'No hay usuario'
+        );
 
-        // Validar que el objeto usuario tenga las claves necesarias
-        if (empty($usuario['correo']) || empty($usuario['contrasena'])) {
-            echo json_encode([
-                'success' => false,
-                'message' => 'El correo y la contraseña son obligatorios.'
-            ]);
-            return;
-        }
-
-        // Escapar las variables para evitar inyección SQL
-        $correo = $this->conexion->real_escape_string($usuario['correo']);
-        $contrasena = $usuario['contrasena'];
-
-        // Consulta para verificar si el usuario existe
-        $sql = "SELECT * FROM usuarios WHERE correo = '$correo' LIMIT 1";
+        // Se prepara la consulta para buscar el ID y el tipo del usuario
+        $sql = "SELECT id, tipo FROM usuarios WHERE correo = '{$usuario['correo']}' AND contrasena = '{$usuario['contrasena']}' ";
+        $this->conexion->set_charset("utf8");
         $result = $this->conexion->query($sql);
 
-        if ($result->num_rows > 0) {
-            $usuarioBD = $result->fetch_assoc();
+        // Si la consulta retorna un resultado
+        if ($result && $result->num_rows > 0) {
+            // Obtiene el ID y tipo del usuario
+            $row = $result->fetch_assoc();
+            $this->data['status'] = "success";
+            $this->data['id'] = $row['id'];  // Almacena el ID en la respuesta
+            $this->data['tipo'] = $row['tipo'];  // Almacena el tipo en la respuesta
 
-            // Verificar la contraseña
-            if (password_verify($contrasena, $usuarioBD['contrasena'])) {
-                session_start();
-                $_SESSION['usuario'] = $usuarioBD;
-
-                echo json_encode([
-                    'success' => true,
-                    'message' => 'Inicio de sesión exitoso.',
-                ]);
-                return;
-            } else {
-                echo json_encode([
-                    'success' => false,
-                    'message' => 'Correo o contraseña incorrectos.'
-                ]);
-                return;
-            }
+            // Guardar el ID y tipo en la sesión
+            $_SESSION['usuario_id'] = $row['id'];
+            $_SESSION['usuario_tipo'] = $row['tipo'];
         } else {
-            echo json_encode([
-                'success' => false,
-                'message' => 'Correo o contraseña incorrectos.'
-            ]);
-            return;
+            // Si no se encuentra el usuario
+            $this->data['message'] = "No se encontró al usuario.";
         }
+
+        $this->conexion->close();
+    }
+
+    // Función para obtener el ID desde la sesión (si es necesario)
+    public function obtenerIdSesion()
+    {
+        return isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
+    }
+
+    // Función para obtener el tipo desde la sesión (si es necesario)
+    public function obtenerTipoSesion()
+    {
+        return isset($_SESSION['usuario_tipo']) ? $_SESSION['usuario_tipo'] : null;
     }
 }
 ?>

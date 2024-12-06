@@ -9,26 +9,23 @@ $(document).ready(function () {
             contrasena: $('#contrasena').val()
         };
 
-        console.log(postData);
+        // Realizar una solicitud POST a usuario-login.php
+        $.post('../../backend/user-login.php', postData, (response) => {
+            const respuesta = JSON.parse(response);
+            if (respuesta.status === "success") {
+                console.log("ID del usuario: " + respuesta.id);
 
-        // Realizar una solicitud POST a login-handler.php
-        $.post('../../backend/usuario-login.php', postData, function (response) {
-            // Procesar la respuesta del servidor
-            let respuesta = JSON.parse(response);
-            console.log(respuesta);
-
-            if (response.success) {
-                // Redirigir a la página principal de usuario
-                //window.location.href = 'mis_actividades.html';
+                // Redirigir según el tipo de usuario
+                if (respuesta.tipo == 0) {
+                    // Redirigir a index si es turista
+                    window.location.href = "../../index.php";
+                } else if (respuesta.tipo == 1) {
+                    // Redirigir a view_propietario si es propietario
+                    window.location.href = "../views/view_propietario.html";
+                }
             } else {
-                // Mostrar mensaje de error si falla la autenticación
-                const errorTemplate = `
-                    <div id="login-error" class="alert alert-danger mt-3">
-                        ${response.message || "Error en el inicio de sesión. Verifica tus credenciales."}
-                    </div>`;
-                $('#login-error').remove(); // Eliminar mensajes previos si los hay
-                $('.card').append(errorTemplate); // Añadir mensaje de error
+                console.log(respuesta.message); // En caso de error
             }
-        }, 'json');
+        });
     });
 });

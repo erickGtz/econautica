@@ -3,6 +3,16 @@ body {
     background-color: #F2F2F2;
 }
 
+/* Estilo del footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #004658;
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
 .message-banner {
     margin: auto;
     padding-top: 50px;
@@ -91,12 +101,13 @@ body {
 
 /* Estilo para el div de dashboard */
 .dashboard-placeholder {
-    border: 2px solid #004658;
+    margin: auto;
+    margin-bottom: 30px;
     border-radius: 10px;
-    padding: 20px;
     font-size: 20px;
     color: #004658;
     font-weight: bold;
+    width: 85%;
 }
 
 /* Estilo para el párrafo de vacaciones */
@@ -108,10 +119,6 @@ body {
     text-decoration: none;
 }
 
-/* Main content */
-.container {
-    margin-top: 120px; /* Ajuste para que el contenido no se superponga con la navbar */
-}
 
 h2 {
     font-size: 24px;

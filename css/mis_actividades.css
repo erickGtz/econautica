@@ -1,31 +1,56 @@
-/* General */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-  }
-  
-  h2 {
-    color: #003B4D;
-    font-weight: 600;
-  }
-  
-  /* Actividades */
-  .activity-item {
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .card-title {
-    color: #003B4D;
-    font-weight: 600;
-  }
-  
-  .card-text {
-    color: #555;
-  }
-  
-  button {
-    font-size: 16px;
-  }
-  
+.card {
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Evita que los elementos sobresalgan */
+  height: 90%;
+}
+
+.card-img-top{
+  height: 80%;
+}
+
+h2{
+  color: #004658;
+  font-weight: bold;
+}
+
+
+.card-title {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  background-color: #006d77;
+  color: white;
+  text-align: center;
+}
+
+.card-body {
+  color: #004658;
+}
+
+.card-text br{
+  margin-bottom: 10px;
+}
+
+.card-footer {
+  background-color: #f1f1f1;
+  border-top: 1px solid #004658;
+  text-align: right;
+}
+
+.btn-danger {
+  margin-left: 33%;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 13px;
+  width: 30%;
+  background-color: #b02a37;
+  border-radius: 8px;
+}
+
+.btn-danger:hover {
+  background-color: #900d23;
+}
+
+.card {
+  margin-bottom: 24px; /* Espacio vertical adicional */
+}

@@ -8,9 +8,9 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <div class="navbar-nav">
-                <a class="nav-link" href="/econautica/frontend/views/view_actividades.html">Mis Actividades</a>
-                <a class="nav-link" href="/econautica/frontend/views/view_login.html">Iniciar Sesión</a>
-                <a class="nav-link" href="/econautica/frontend/views/view_registro.html">Registrarse</a>
+                <a class="nav-link" href="/econautica/frontend/views/view_actividades.php">Mis Actividades</a>
+                <a class="nav-link" href="/econautica/frontend/views/view_login.php">Iniciar Sesión</a>
+                <a class="nav-link" href="/econautica/frontend/views/view_registro.php">Registrarse</a>
             </div>
         </div>
     </nav>

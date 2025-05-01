@@ -21,7 +21,7 @@ $(document).ready(function () {
                     window.location.href = "../../index.php";
                 } else if (respuesta.tipo == 1) {
                     // Redirigir a view_propietario si es propietario
-                    window.location.href = "../views/view_propietario.html";
+                    window.location.href = "../views/view_propietario.php";
                 }
             } else {
                 console.log(respuesta.message); // En caso de error

@@ -13,9 +13,9 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Econautica</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/index-style.css">
-        <link rel="stylesheet" href="css/navbar-style.css">
-        <link rel="stylesheet" href="css/canva-style.css">
+        <link rel="stylesheet" href="frontend/css/index-style.css">
+        <link rel="stylesheet" href="frontend/css/navbar-style.css">
+        <link rel="stylesheet" href="frontend/css/canva-style.css">
     </head>
 
     <body>
@@ -24,7 +24,7 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
 
         <!-- Primer mensaje banner -->
         <div class="message-banner text-center mb-3">
-            <a href="frontend/views/view_info.html" class="message-link">Da clic aquí para conocer más sobre el ODS vida
+            <a href="frontend/views/view_info.php" class="message-link">Da clic aquí para conocer más sobre el ODS vida
                 submarina :)</a>
         </div>
 

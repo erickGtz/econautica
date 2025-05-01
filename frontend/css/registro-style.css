@@ -2,7 +2,6 @@
 body {
   background-color: #f8f9fa;
   color: #343a40;
-  margin-top: 60px; /* Para compensar el fixed navbar */
 }
 
 /* Estilo para el contenedor principal */

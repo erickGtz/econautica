@@ -20,33 +20,7 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
 
     <body>
 
-        <header>
-            <div>
-                <!-- Navbar -->
-                <nav class="navbar navbar-expand-lg fixed-top">
-                    <div class="container-fluid">
-                        <?php if ($usuario_logueado): ?>
-                            <!-- Si está logueado, solo mostrar Mis Actividades y Cerrar sesión -->
-                            <a class="nav-link" href="./frontend/views/view_actividades.html">Mis Actividades</a>
-                        <?php endif; ?>
-                        <div class="navbar-collapse d-flex justify-content-center">
-                            <span class="navbar-title"><a href="./index.php">Econautica</a></span>
-                        </div>
-                        <div class="navbar-nav ml-auto">
-                            <?php if ($usuario_logueado): ?>
-                                <!-- Si está logueado, mostrar el enlace para Cerrar sesión -->
-                                <a class="nav-link" href="./backend/logout.php">Cerrar Sesión</a>
-                            <?php else: ?>
-                                <!-- Si no está logueado, mostrar Iniciar sesión y Registrarse -->
-                                <a class="nav-link" href="./frontend/views/view_login.html">Iniciar Sesión</a>
-                                <span class="navbar-text">|</span>
-                                <a class="nav-link" href="./frontend/views/view_registro.html">Registrarse</a>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </header>
+        <div id="header-placeholder"></div> <!-- Aquí se insertará el header -->
 
         <!-- Primer mensaje banner -->
         <div class="message-banner text-center mb-3">
@@ -132,14 +106,16 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
             </div>
         </div>
 
-        <footer>
-            <p>© 2024 Econautica. Promoviendo el turismo sostenible en México.</p>
-        </footer>
+        <div id="footer-placeholder"></div> <!-- Aquí se insertará el footer -->
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"
                 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="app.js"></script>
+
+        <!-- Enlazar los archivos JS para cargar el header y footer -->
+        <script src="frontend/plantillas/js/header.js"></script>
+        <script src="frontend/plantillas/js/footer.js"></script>
     </body>
 
 </html>

@@ -1,13 +1,10 @@
-/* Navbar */
-.navbar {
-    background-color: #004658;
-    margin-bottom: 80px;
-}
-
+/* Título */
 .navbar-title {
+    background-color: #033c4a;
     font-style: italic;
     font-size: 36px;
     color: #ffffff;
+    text-align: center; /* Asegura que el título esté centrado */
 }
 
 .navbar-title a {
@@ -18,24 +15,26 @@
 
 .navbar-title a:hover {
     color: #d0d0d0;
-    text-decoration: none;
 }
 
-.navbar-brand {
-    font-weight: bold;
+/* Navbar */
+.navbar {
+    background-color: #004658;
+    display: flex;
+    flex-direction: column; /* Asegura que el título esté encima de las opciones */
+    align-items: center; /* Centra el contenido de la navbar */
+    position: relative; /* Necesario para asegurar que el título no quede solapado */
 }
 
-.navbar-text {
-    color: #ffffff;
-    font-style: italic;
+
+/* Opciones del menú */
+.navbar-nav {
+    display: flex;
+    justify-content: center; /* Centra las opciones */
+    width: 100%;
 }
 
 .navbar-nav .nav-link {
-    color: #ffffff;
-    margin-left: 10px;
-}
-
-.container-fluid .nav-link {
     color: #ffffff;
     margin-left: 10px;
 }

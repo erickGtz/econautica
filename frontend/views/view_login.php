@@ -6,24 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoNautica</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/navbar-style.css">
-    <link rel="stylesheet" href="../../css/login-style.css">
+    <link rel="stylesheet" href="../css/navbar-style.css">
+    <link rel="stylesheet" href="../css/login-style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   </head>
 
   <body>
     <!-- Header -->
-    <header class="bg-dark text-white py-3">
-      <div>
-        <nav class="navbar navbar-expand-lg fixed-top">
-          <div class="container-fluid">
-            <div class="navbar-collapse d-flex justify-content-center">
-              <span class="navbar-title" style="font-style: italic;">Econautica</span>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
+    <div id="header-placeholder"></div> <!-- Aquí se insertará el header -->
 
     <!-- Contenedor principal -->
     <div class="container-fluid completo vh-100">
@@ -72,9 +62,15 @@
         </div>
       </div>
     </div>
+
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
                 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="../js/app_login.js"></script>
+
+    <!-- Enlazar los archivos JS para cargar el header -->
+    <script src="../plantillas/js/header.js"></script>
   </body>
 </html>

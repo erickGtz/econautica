@@ -5,29 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Econautica - Vida Submarina</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/navbar-style.css">
-    <link rel="stylesheet" href="../../css/info-style.css">
+    <link rel="stylesheet" href="../css/navbar-style.css">
+    <link rel="stylesheet" href="../css/info-style.css">
 
 </head>
 <body>
-    <header>
-    <div>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-collapse d-flex justify-content-center">
-                    <span class="navbar-title"><a href="../../index.php">Econautica</a></span>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-
-        <h1>Vida Submarina - Objetivo de Desarrollo Sostenible (ODS) 14</h1>
-    </header>
+    <div id="header-placeholder"></div> <!-- Aquí se insertará el footer -->
 
     <section>
         <h2>¿Qué es el ODS 14?</h2>
@@ -80,8 +63,10 @@
         </p>
     </section>
 
-    <footer>
-        <p>© 2024 Econautica. Promoviendo el turismo sostenible en México.</p>
-    </footer>
+    <div id="footer-placeholder"></div> <!-- Aquí se insertará el footer -->
+
+    <!-- Enlazar los archivos JS para cargar el header y footer -->
+    <script src="../plantillas/js/header.js"></script>
+    <script src="../plantillas/js/footer.js"></script>
 </body>
 </html>

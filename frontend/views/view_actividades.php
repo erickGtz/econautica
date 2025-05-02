@@ -6,25 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoNautica - Mis Actividades</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/navbar-style.css">
-    <link rel="stylesheet" href="../../css/mis_actividades.css">
+    <link rel="stylesheet" href="../css/navbar-style.css">
+    <link rel="stylesheet" href="../css/mis_actividades.css">
   </head>
 
   <body>
-    <!-- Header -->
-    <header class="py-3">
-      <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-          <a class="nav-link" href="#">Mis Actividades</a>
-          <div class="navbar-collapse d-flex justify-content-center">
-            <span class="navbar-title"><a href="../../index.php">Econautica</a></span>
-          </div>
-          <div class="navbar-nav ml-auto">
-            <a class="nav-link" href="../../backend/logout.php">Cerrar Sesión</a>
-          </div>
-        </div>
-      </nav>
-    </header>
+
+    <div id="header-placeholder"></div> <!-- Aquí se insertará el header -->
 
     <!-- Contenido principal -->
     <div class="container my-5">
@@ -36,10 +24,17 @@
       </div>
     </div>
 
+
+    <div id="footer-placeholder"></div> <!-- Aquí se insertará el footer -->
+
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="../js/app_actividades.js"></script>
+
+    <!-- Enlazar los archivos JS para cargar el header y footer -->
+    <script src="../plantillas/js/header.js"></script>
+    <script src="../plantillas/js/footer.js"></script>
   </body>
 
 </html>

@@ -16,7 +16,7 @@ footer {
 .message-banner {
     margin: auto;
     padding-top: 50px;
-    margin-top: 6%;
+    margin-top: 20px;
     position: relative;
     height: 150px;
     width: 85%;
@@ -31,7 +31,7 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../backend/img/fondo-div.jpg');
+    background-image: url('../../backend/img/fondo-div.jpg');
     background-size: cover;
     background-position: center;
     z-index: -1;
@@ -81,7 +81,7 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../backend/img/ecoturismo.jpg');
+    background-image: url('../../backend/img/ecoturismo.jpg');
     background-size: cover;
     background-position: center;
     z-index: -1;

@@ -14,22 +14,6 @@ body {
     max-width: 1200px;
 }
 
-/* Estilo del encabezado */
-header {
-    background-color: #F2F2F2;
-    
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-header h1 {
-  color: #004658;
-    margin: 0;
-    font-weight: bold;
-}
-
 /* Secciones */
 section {
     background-color: #FFFFFF;

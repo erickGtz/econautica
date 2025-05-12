@@ -22,34 +22,8 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
 
         <div id="header-placeholder"></div> <!-- Aquí se insertará el header -->
 
-        <!-- Primer mensaje banner -->
-        <div class="message-banner text-center mb-3">
-            <a href="frontend/views/view_info.php" class="message-link">Da clic aquí para conocer más sobre el ODS vida
-                submarina :)</a>
-        </div>
-
-        <!-- Div con borde para el Dashboard -->
-        <div class="dashboard-placeholder text-center ">
-            <div class="container mt-5 mb-5">
-                <div class="row">
-                    <div class="col-md-4 mt-5">
-                        <canvas id="chartActividades" height="150"></canvas>
-                    </div>
-
-                    <div class="col-md-4">
-                        <canvas id="chartConciencia" class="pastel"></canvas>
-                    </div>
-                    <div class="col-md-4 mt-5">
-                        <canvas id="chartReservas" height="150"></canvas>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Segundo mensaje banner (vacaciones) -->
-        <div class="vacation-banner text-center mb-0">
+        <!-- Primer mensaje banner (vacaciones) -->
+        <div class="vacation-banner text-center mb-0 mt-3">
             <p class="message-text">~ Encuentra la actividad para tus próximas vacaciones ~</p>
         </div>
 
@@ -105,6 +79,34 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
                 <!-- Las tarjetas de actividades aparecerán aquí -->
             </div>
         </div>
+
+        <!-- Segundo mensaje banner -->
+        <div class="message-banner text-center mb-3">
+            <a href="frontend/views/view_info.php" class="message-link">Da clic aquí para conocer más sobre el ODS vida
+                submarina :)</a>
+        </div>
+
+        <!-- Div con borde para el Dashboard -->
+        <div class="dashboard-placeholder text-center ">
+            <div class="container mt-5 mb-5">
+                <div class="row">
+                    <div class="col-md-4 mt-5">
+                        <canvas id="chartActividades" height="150"></canvas>
+                    </div>
+
+                    <div class="col-md-4">
+                        <canvas id="chartConciencia" class="pastel"></canvas>
+                    </div>
+                    <div class="col-md-4 mt-5">
+                        <canvas id="chartReservas" height="150"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        
 
         <div id="footer-placeholder"></div> <!-- Aquí se insertará el footer -->
 

@@ -102,10 +102,10 @@ $(document).ready(function () {
               // Redirigir según el tipo de usuario
               if (respuestaLogin.tipo == 0) {
                 // Redirigir a view_encuesta si es turista
-                window.location.href = "../views/view_encuesta.html";
+                window.location.href = "../views/view_encuesta.php";
               } else if (respuestaLogin.tipo == 1) {
                 // Redirigir a view_propietario si es propietario
-                window.location.href = "../views/view_propietario.html";
+                window.location.href = "../views/view_propietario.php";
               }
             } else {
               console.log(respuestaLogin.message); // En caso de error

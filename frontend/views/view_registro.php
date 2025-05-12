@@ -11,6 +11,11 @@
   </head>
 
   <body>
+
+    <?php
+      $mostrarNavbar = false;
+      include '../plantillas/php/header.php';
+    ?>
     <!-- Header -->
     <div id="header-placeholder"></div> <!-- Aquí se insertará el header -->
 
@@ -93,8 +98,6 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="../js/app_registro.js"></script>
 
-    <!-- Enlazar los archivos JS para cargar el header y footer -->
-    <script src="../plantillas/js/header.js"></script>
     <script src="../plantillas/js/footer.js"></script>
   </body>
 

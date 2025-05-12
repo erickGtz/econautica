@@ -11,11 +11,13 @@
 </head>
 <body>
 
+    <?php
+      $mostrarNavbar = false;
+      include '../plantillas/php/header.php';
+    ?>
+
     <div id="header-placeholder"></div> <!-- Aquí se insertará el footer -->
 
-    <br>
-    <br>
-    <br>
     <h1>Encuesta de Conciencia sobre la Vida Submarina y Turismo Sostenible </h1>
     <div id="survey-container">
         <!-- Aquí se cargará dinámicamente el contenido de la encuesta -->
@@ -27,8 +29,6 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="../js/app_encuesta.js"></script>
 
-    <!-- Enlazar los archivos JS para cargar el header y footer -->
-    <script src="../plantillas/js/header.js"></script>
     <script src="../plantillas/js/footer.js"></script>
 </body>
 </html>

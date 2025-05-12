@@ -12,6 +12,11 @@
   </head>
 
   <body>
+    <?php
+      $mostrarNavbar = false;
+      include '../plantillas/php/header.php';
+    ?>
+
     <!-- Header -->
     <div id="header-placeholder"></div> <!-- Aquí se insertará el header -->
 
@@ -53,7 +58,7 @@
                 </div>
               </div>
               <div class="link">
-                <a href="./view_registro.html">No tienes cuenta aún? ...</a>
+                <a href="./view_registro.php">No tienes cuenta aún? ...</a>
               </div>
               <!-- Botón -->
               <button type="submit" class="btn btn-primary">Ingresar</button>
@@ -66,11 +71,10 @@
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="../js/app_login.js"></script>
 
-    <!-- Enlazar los archivos JS para cargar el header -->
-    <script src="../plantillas/js/header.js"></script>
   </body>
+
 </html>

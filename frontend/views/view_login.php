@@ -22,9 +22,9 @@
 
     <!-- Contenedor principal -->
     <div class="container-fluid completo vh-100">
-      <div class="row h-100">
+      <div class="row ">
         <!-- Primera columna con el carrusel -->
-        <div class="col-6 col-md-6 imagen">
+        <div class="col-6 col-md-6 imagen d-none d-md-block">
           <div class="carousel">
             <div class="carousel-inner">
               <img src="../../backend/img/fondo-peces.jpg" alt="Imagen 1">
@@ -32,7 +32,7 @@
           </div>
         </div>
         <!-- Segunda columna con el formulario -->
-        <div class="col-6 col-md-6 d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
           <div class="card">
             <h3>Inicia Sesión</h3>
             <form id="formulario">

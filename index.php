@@ -81,24 +81,25 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
         </div>
 
         <!-- Tercer mensaje banner -->
-        <div class="message-banner text-center mb-3">
-            <a href="frontend/views/view_encuesta.php" class="message-link">Contesta nuestra encuesta para un 20% de descueto</a>
+        <div class="message-banner2 text-center mb-1">
+            <a href="frontend/views/view_encuesta.php" class="message-link">Contesta nuestra encuesta para un 20% de descuento</a>
         </div>
 
-        
+        <!-- Título de resultados -->
+            <h2 class="mt-4 mb-1">Graficas de la conciencia marina</h2>
 
         <!-- Div con borde para el Dashboard -->
         <div class="dashboard-placeholder text-center ">
-            <div class="container mt-5 mb-5">
+            <div class="container mb-5">
                 <div class="row">
-                    <div class="col-md-4 mt-5">
+                    <div class="col-md-4 mt-1">
                         <canvas id="chartActividades" height="150"></canvas>
                     </div>
 
                     <div class="col-md-4">
                         <canvas id="chartConciencia" class="pastel"></canvas>
                     </div>
-                    <div class="col-md-4 mt-5">
+                    <div class="col-md-4 mt-1">
                         <canvas id="chartReservas" height="150"></canvas>
                     </div>
                 </div>

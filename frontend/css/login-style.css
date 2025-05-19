@@ -20,6 +20,13 @@ body{
     font-weight: bold;
 }
 
+@media (max-width: 768px) {
+  .card h3 {
+    font-size: 32px;
+    white-space: normal; /* permitir que se divida en móviles */
+  }
+}
+
 /* Form fields */
 .form-control {
   background-color: #F2F2F2;

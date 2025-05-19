@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #F2F2F2; /* mantienes tu color de fondo */
+}
+
+main {
+  flex: 1; /* hace que el contenido principal crezca y empuje el footer al fondo */
+}
+
+/* Ya tienes este estilo, solo le quitamos margin-top para que no se "despegue" */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #004658;
+  color: #FFFFFF;
+  /* margin-top: 20px; */  /* quita o comenta esta línea */
+  font-size: 14px;
+}
+
+h2{
+  color: #004658;
+  font-weight: bold;
+}

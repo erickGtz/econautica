@@ -49,6 +49,43 @@ footer {
     z-index: -1;
 }
 
+
+.message-banner2 {
+    margin: auto;
+    padding-top: 50px;
+    margin-top: 20px;
+    position: relative;
+    height: 150px;
+    width: 85%;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.message-banner2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../backend/img/banner-mar.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+/* Capa de oscuridad */
+.message-banner2::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
 /* Estilos para el enlace */
 .message-link {
     font-style: italic;
@@ -123,6 +160,7 @@ footer {
 h2 {
     font-size: 24px;
     font-weight: bold;
+    text-align: center;
 }
 
 /* Estilos para los formularios */
@@ -205,4 +243,16 @@ button[type="submit"] {
 
 .card button:hover {
     background-color: #00333d;
+}
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 576px) {
+  .message-link, .message-text {
+    font-size: 20px; /* Reduce tamaño de fuente */
+  }
+  .message-banner, .message-banner2, .vacation-banner {
+    height: auto; /* Que el contenedor se adapte a la altura del texto */
+    padding: 20px;
+    min-height: unset; /* Elimina altura fija para móviles */
+  }
 }

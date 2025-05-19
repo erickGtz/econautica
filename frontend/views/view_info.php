@@ -64,6 +64,9 @@
     </section>
 
     <div id="footer-placeholder"></div> <!-- Aquí se insertará el footer -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="../js/app_info.js"></script>
 
     <!-- Enlazar los archivos JS para cargar el header y footer -->
     <script src="../plantillas/js/header.js"></script>

@@ -80,11 +80,12 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
             </div>
         </div>
 
-        <!-- Segundo mensaje banner -->
+        <!-- Tercer mensaje banner -->
         <div class="message-banner text-center mb-3">
-            <a href="frontend/views/view_info.php" class="message-link">Da clic aquí para conocer más sobre el ODS vida
-                submarina :)</a>
+            <a href="frontend/views/view_encuesta.php" class="message-link">Contesta nuestra encuesta para un 20% de descueto</a>
         </div>
+
+        
 
         <!-- Div con borde para el Dashboard -->
         <div class="dashboard-placeholder text-center ">
@@ -106,7 +107,11 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
 
         </div>
 
-        
+        <!-- Segundo mensaje banner -->
+        <div class="message-banner text-center mb-3">
+            <a href="frontend/views/view_info.php" class="message-link">Da clic aquí para conocer más sobre el ODS vida
+                submarina :)</a>
+        </div>
 
         <div id="footer-placeholder"></div> <!-- Aquí se insertará el footer -->
 

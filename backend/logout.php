@@ -7,7 +7,10 @@ session_unset();
 // Destruir la sesión
 session_destroy();
 
+// Eliminar la cookie de la sesión en el navegador
+setcookie(session_name(), '', time() - 3600, '/'); // Borrar la cookie PHPSESSID
+
 // Redirigir al usuario al login
-header("Location: ../frontend/views/view_login.html");
+header("Location: ../index.php");
 exit();
 ?>

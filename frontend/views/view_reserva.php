@@ -11,6 +11,12 @@
   </head>
 
   <body>
+
+    <?php
+      $mostrarNavbar = true;
+      include '../plantillas/php/header.php';
+    ?>
+
     <!-- Header -->
     <div id="header-placeholder"></div> <!-- Aquí se insertará el header -->
 
@@ -77,7 +83,6 @@
     <script src="../js/app_reserva.js"></script>
 
     <!-- Enlazar los archivos JS para cargar el header y footer -->
-    <script src="../plantillas/js/header.js"></script>
     <script src="../plantillas/js/footer.js"></script>
   </body>
 

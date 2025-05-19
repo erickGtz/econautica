@@ -1,36 +1,6 @@
 $(document).ready(function () {
-    verificarSesion();
-    // Manejador del formulario de inicio de sesión
-    $('#formulario').submit(function (e) {
-        e.preventDefault(); // Prevenir envío tradicional del formulario
+      verificarSesion();
 
-        // Capturar datos del formulario
-        const postData = {
-            correo: $('#correo').val(),
-            contrasena: $('#contrasena').val()
-        };
-
-
-        // Realizar una solicitud POST a usuario-login.php
-        $.post('../../backend/user-login.php', postData, (response) => {
-            const respuesta = JSON.parse(response);
-            if (respuesta.status === "success") {
-                
-                window.location.href = "../../index.php";
-                /*
-                // Redirigir según el tipo de usuario
-                if (respuesta.tipo == 0) {
-                    // Redirigir a index si es turista
-                    
-                } else if (respuesta.tipo == 1) {
-                    // Redirigir a view_propietario si es propietario
-                    window.location.href = "../views/view_propietario.php";
-                }*/
-            } else {
-                console.log(respuesta.message); // En caso de error
-            }
-        });
-    });
 });
 
 function verificarSesion() {

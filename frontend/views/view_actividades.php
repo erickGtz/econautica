@@ -18,15 +18,6 @@
     <div class="container my-5">
       <h2 class="mb-4">Mis Actividades</h2>
 
-      <!-- Tarjetas de actividades -->
-      <div class="card">
-      <h3>Nombre de la actividad</h3>
-      <p>Descripción corta...</p>
-      <button>Ver más</button>
-      </div>
-
-
-
       <div class="d-flex flex-wrap justify-content-center gap-4" id="actividadesContainer">
   <!-- Las actividades se cargarán aquí dinámicamente -->
 </div>

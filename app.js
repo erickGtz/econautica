@@ -79,7 +79,7 @@ $(document).ready(function () {
           const res = JSON.parse(response);
 
           if (res.status === 'exists') {
-            alert('Ya contestaste la encuesta.');
+            alert('Ya haz contestado la encuesta. Muchas gracias por tu participación.');
           } else if (res.status === 'ok') {
             window.location.href = 'frontend/views/view_encuesta.php';
           } else {

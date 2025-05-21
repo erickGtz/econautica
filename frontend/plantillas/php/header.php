@@ -2,6 +2,7 @@
     <!-- Título fuera de la navbar -->
     <div class="navbar-title">
         <a href="/econautica/index.php">EcoNautica</a>
+        <span style="display:none;">EcoNautica</span>
     </div>
 
     <?php if (!isset($mostrarNavbar) || $mostrarNavbar): ?>

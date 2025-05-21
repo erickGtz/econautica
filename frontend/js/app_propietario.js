@@ -60,8 +60,8 @@ $(document).ready(function () {
     const message = !location
       ? 'Ubicación requerida'
       : !isValid
-      ? 'Selecciona un estado costero válido'
-      : '';
+        ? 'Selecciona un estado costero válido'
+        : '';
 
     updateFieldState($(this), isValid, message);
   });
@@ -80,8 +80,8 @@ $(document).ready(function () {
     const message = !category
       ? 'Categoría requerida'
       : !isValid
-      ? 'Seleccione una categoría válida'
-      : '';
+        ? 'Seleccione una categoría válida'
+        : '';
 
     updateFieldState($(this), isValid, message);
   });
@@ -374,9 +374,9 @@ function verificarSesion() {
   $.ajax({
     url: '../../backend/login.php',  // Ruta a tu archivo de verificación
     method: 'GET',
-    success: function(data) {
+    success: function (data) {
       console.log(data);
-      if(data.logueado) {
+      if (data.logueado) {
         // Si el usuario está logueado, mostramos las opciones correspondientes
         $('#menu-login').hide();
         $('#menu-registro').hide();
@@ -388,6 +388,8 @@ function verificarSesion() {
           $('#menu-reservas').show();  // Mostrar "Mis Reservas" si es turista
           $('#menu-actividades').hide();  // Ocultar "Mis Actividades" si es turista
         } else if (data.usuario_tipo == 1) {
+          $('.navbar-title a').hide();
+          $('.navbar-title span').show();
           $('#menu-actividades').show();  // Mostrar "Mis Actividades" si es administrador
           $('#menu-reservas').hide();  // Ocultar "Mis Reservas" si es administrador
         }
@@ -401,7 +403,7 @@ function verificarSesion() {
         $('#menu-actividades').hide();
       }
     },
-    error: function() {
+    error: function () {
       console.error('Error verificando la sesión.');
     }
   });

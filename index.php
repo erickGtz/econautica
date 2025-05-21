@@ -16,6 +16,8 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
         <link rel="stylesheet" href="frontend/css/index-style.css">
         <link rel="stylesheet" href="frontend/css/navbar-style.css">
         <link rel="stylesheet" href="frontend/css/canva-style.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     </head>
 
     <body>

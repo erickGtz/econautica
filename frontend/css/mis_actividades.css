@@ -1,8 +1,17 @@
 .card {
-  border-radius: 12px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Evita que los elementos sobresalgan */
-  height: 90%;
+  width: 100%;
+  max-width: 300px;
+  height: 450px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease-in-out;
+  margin: auto;
 }
 
 .card-img-top{

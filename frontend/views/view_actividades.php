@@ -19,10 +19,17 @@
       <h2 class="mb-4">Mis Actividades</h2>
 
       <!-- Tarjetas de actividades -->
-      <div class="row" id="actividadesContainer">
-        <!-- Las actividades se cargarán aquí dinámicamente -->
+      <div class="card">
+      <h3>Nombre de la actividad</h3>
+      <p>Descripción corta...</p>
+      <button>Ver más</button>
       </div>
-    </div>
+
+
+
+      <div class="d-flex flex-wrap justify-content-center gap-4" id="actividadesContainer">
+  <!-- Las actividades se cargarán aquí dinámicamente -->
+</div>
 
 
     <div id="footer-placeholder"></div> <!-- Aquí se insertará el footer -->

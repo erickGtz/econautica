@@ -1,8 +1,7 @@
 <header>
     <!-- Título fuera de la navbar -->
     <div class="navbar-title">
-        <a href="/econautica/index.php">EcoNautica</a>
-        <span style="display:none;">EcoNautica</span>
+        <a id="navbar-main-link" href="/econautica/index.php">EcoNautica</a>
     </div>
 
     <?php if (!isset($mostrarNavbar) || $mostrarNavbar): ?>

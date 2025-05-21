@@ -376,6 +376,7 @@ function verificarSesion() {
     method: 'GET',
     success: function (data) {
       console.log(data);
+      $('#navbar-main-link').attr('href', '/econautica/frontend/views/view_propietario.php');
       if (data.logueado) {
         // Si el usuario está logueado, mostramos las opciones correspondientes
         $('#menu-login').hide();
@@ -388,8 +389,6 @@ function verificarSesion() {
           $('#menu-reservas').show();  // Mostrar "Mis Reservas" si es turista
           $('#menu-actividades').hide();  // Ocultar "Mis Actividades" si es turista
         } else if (data.usuario_tipo == 1) {
-          $('.navbar-title a').hide();
-          $('.navbar-title span').show();
           $('#menu-actividades').show();  // Mostrar "Mis Actividades" si es administrador
           $('#menu-reservas').hide();  // Ocultar "Mis Reservas" si es administrador
         }

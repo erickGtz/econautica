@@ -13,6 +13,7 @@ function verificarSesion() {
                 $('#menu-registro').hide();
                 $('#menu-logout').show();
                 $('#menu-perfil').show();
+                
 
                 if (data.usuario_tipo == 0) {
                     $('#menu-reservas').show();
@@ -20,6 +21,7 @@ function verificarSesion() {
                 } else if (data.usuario_tipo == 1) {
                     $('#menu-actividades').show();
                     $('#menu-reservas').hide();
+                    $('#navbar-main-link').attr('href', '/econautica/frontend/views/view_propietario.php');
                 }
 
                 // Aquí llamas a cargarDatosUsuario PASÁNDOLE el id recibido

@@ -290,6 +290,8 @@ function verificarSesion() {
         $('#menu-perfil').hide();
         $('#menu-reservas').hide();
         $('#menu-actividades').hide();
+        $('.navbar-title a[href="/econautica/index.php"]').show();
+          $('.navbar-title a[href="/econautica/frontend/views/view_propietario.php"]').hide();
       }
     },
     error: function() {

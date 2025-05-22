@@ -19,20 +19,21 @@
       <h2 class="mb-4">Mis Actividades</h2>
 
       <div class="d-flex flex-wrap justify-content-center gap-4" id="actividadesContainer">
-  <!-- Las actividades se cargarán aquí dinámicamente -->
-</div>
+        <!-- Las actividades se cargarán aquí dinámicamente -->
+      </div>
+    </div>
 
 
-    <div id="footer-placeholder"></div> <!-- Aquí se insertará el footer -->
+      <div id="footer-placeholder"></div> <!-- Aquí se insertará el footer -->
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="../js/app_actividades.js"></script>
+      <!-- Scripts -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+              integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+      <script src="../js/app_actividades.js"></script>
 
-    <!-- Enlazar los archivos JS para cargar el header y footer -->
-    <script src="../plantillas/js/header.js"></script>
-    <script src="../plantillas/js/footer.js"></script>
+      <!-- Enlazar los archivos JS para cargar el header y footer -->
+      <script src="../plantillas/js/header.js"></script>
+      <script src="../plantillas/js/footer.js"></script>
   </body>
 
 </html>

@@ -6,6 +6,15 @@ body {
     padding: 0;
 }
 
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #004658;
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
 /* Contenedor principal */
 #survey-container {
     background-color: #FFFFFF;

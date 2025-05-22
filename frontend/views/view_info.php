@@ -12,6 +12,7 @@
 <body>
     <div id="header-placeholder"></div> <!-- Aquí se insertará el footer -->
 
+    <br>
     <section>
         <h2>¿Qué es el ODS 14?</h2>
         <p>

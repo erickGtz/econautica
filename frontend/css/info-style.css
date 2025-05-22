@@ -7,6 +7,15 @@ body {
     padding: 0;
 }
 
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #004658;
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
 /* Espaciado general del contenido */
 .container {
     margin: 20px auto;
@@ -52,15 +61,7 @@ ul li {
     list-style-type: disc;
 }
 
-/* Estilo del footer */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #004658;
-    color: #FFFFFF;
-    margin-top: 20px;
-    font-size: 14px;
-}
+
 
 /* Adaptabilidad */
 @media (max-width: 768px) {

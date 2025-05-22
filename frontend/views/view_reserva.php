@@ -21,7 +21,7 @@
     <div id="header-placeholder"></div> <!-- Aquí se insertará el header -->
 
     <!-- Contenido principal -->
-    <div class="container mt-1">
+    <div class="container mt-3">
       <h2 class="text-center mb-4">Inscripción</h2>
       <div class="card mx-auto" style="max-width: 500px;">
         <div class="card-body">

@@ -1,3 +1,16 @@
+/* General */
+body {
+  background-color: #f4f9f4; /* Verde pálido */
+  color: #004658; /* Azul oscuro */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  /* Asegura que el cuerpo tenga al menos la altura de la ventana */
+}
+
+.container {
+  flex: 1; /* Permite que el contenido se expanda y ocupe el espacio disponible */
+}
+
 .card {
   width: 100%;
   max-width: 300px;
@@ -12,6 +25,15 @@
   justify-content: space-between;
   transition: transform 0.2s ease-in-out;
   margin: auto;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #004658;
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-size: 14px;
 }
 
 .card-img-top{

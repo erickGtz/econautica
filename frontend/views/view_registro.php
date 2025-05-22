@@ -20,7 +20,7 @@
     <div id="header-placeholder"></div> <!-- Aquí se insertará el header -->
 
     <!-- Contenido principal -->
-    <div class="container my-1">
+    <div class="container my-1 mt-3">
       <h2 class="mb-4 text-center">Registro</h2>
       <div class="card shadow">
         <div class="card-body">

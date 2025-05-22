@@ -1,7 +1,24 @@
 /* Estilo general para la página */
 body {
-  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #F2F2F2; /* mantienes tu color de fondo */
   color: #343a40;
+}
+
+.container {
+  flex: 1; /* Permite que el contenido se expanda y ocupe el espacio disponible */
+}
+
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #004658;
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-size: 14px;
 }
 
 /* Estilo para el contenedor principal */

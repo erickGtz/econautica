@@ -68,6 +68,35 @@ $(document).ready(function () {
     buscarActividades();
   });
 
+ $('#banner-encuesta').click(function() {
+  $.ajax({
+    url: './backend/login.php', // verifica si hay sesión
+    method: 'GET',
+    success: function(data) {
+      if(data.logueado) {
+        // Si está logueado, verificamos si ya contestó la encuesta
+        $.post('./backend/user-encuesta.php', { id: data.usuario_id }, function(response) {
+          const res = JSON.parse(response);
+
+          if (res.status === 'exists') {
+            alert('Ya haz contestado la encuesta. Muchas gracias por tu participación.');
+          } else if (res.status === 'ok') {
+            window.location.href = 'frontend/views/view_encuesta.php';
+          } else {
+            alert('Error: ' + res.message);
+          }
+        });
+      } else {
+        alert('Necesitas iniciar sesión para contestar la encuesta.');
+      }
+    },
+    error: function() {
+      alert('Error verificando sesión. Intenta de nuevo.');
+    }
+  });
+});
+
+
   // Crear gráfica 2: Participación en turismo sostenible
   function crearGraficaReservas(data) {
     const ctx = document.getElementById('chartReservas').getContext('2d');

@@ -16,6 +16,8 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
         <link rel="stylesheet" href="frontend/css/index-style.css">
         <link rel="stylesheet" href="frontend/css/navbar-style.css">
         <link rel="stylesheet" href="frontend/css/canva-style.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     </head>
 
     <body>
@@ -82,11 +84,13 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
 
         <!-- Tercer mensaje banner -->
         <div class="message-banner2 text-center mb-1">
-            <a href="frontend/views/view_encuesta.php" class="message-link">Contesta nuestra encuesta para un 20% de descuento</a>
+            <span id="banner-encuesta" class="message-link" style="cursor:pointer;">Contesta nuestra encuesta para un
+                20% de descuento</span>
         </div>
 
+
         <!-- Título de resultados -->
-            <h2 class="mt-4 mb-1">Graficas de la conciencia marina</h2>
+        <h2 class="mt-4 mb-1">Graficas de la conciencia marina</h2>
 
         <!-- Div con borde para el Dashboard -->
         <div class="dashboard-placeholder text-center ">
@@ -112,6 +116,7 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
         <div class="message-banner text-center mb-3">
             <a href="frontend/views/view_info.php" class="message-link">Da clic aquí para conocer más sobre el ODS vida
                 submarina :)</a>
+
         </div>
 
         <div id="footer-placeholder"></div> <!-- Aquí se insertará el footer -->

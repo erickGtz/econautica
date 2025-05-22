@@ -246,7 +246,7 @@ button[type="submit"] {
 }
 
 /* Media query para pantallas pequeñas (móviles) */
-@media (max-width: 576px) {
+@media (max-width: 800px) {
   .message-link, .message-text {
     font-size: 20px; /* Reduce tamaño de fuente */
   }

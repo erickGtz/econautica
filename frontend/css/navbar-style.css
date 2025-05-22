@@ -38,3 +38,18 @@
     color: #ffffff;
     margin-left: 10px;
 }
+/* Color blanco para el ícono */
+.bi-house-door {
+    color: white !important;
+    transition: opacity 0.3s;
+}
+
+/* Efecto hover */
+.bi-house-door:hover {
+    opacity: 0.8;
+}
+
+/* Fondo del navbar (si no lo tienes) */
+.navbar {
+    background-color: #333; /* Ajusta al color de tu tema */
+}

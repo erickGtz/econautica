@@ -2,13 +2,10 @@ $(document).ready(function () {
 
     let usuarioId = null;  // Variable para almacenar el ID del usuario logueado
     
-      console.log('Verificando sesión...');
   $.ajax({
     url: '../../backend/login.php',  // Ruta a tu archivo de verificación
     method: 'GET',
     success: function(data) {
-        console.log('Respuesta de la verificación de sesión:');
-      console.log(data);
       if(data.logueado) {
         // Si el usuario está logueado, mostramos las opciones correspondientes
         $('#menu-login').hide();
@@ -16,7 +13,6 @@ $(document).ready(function () {
         $('#menu-logout').show();
         $('#menu-perfil').show();  // Mostrar siempre "Mi Perfil"
         usuarioId = data.usuario_id;  // Guardamos el id del usuario
-        console.log(usuarioId);
 
         // Mostrar el enlace dependiendo del tipo de usuario
         if (data.usuario_tipo == 0) {
@@ -42,7 +38,6 @@ $(document).ready(function () {
     }
   });
 
-    console.log(usuarioId);
 
     let allResponses = {}; // Objeto para almacenar todas las respuestas
 
@@ -144,10 +139,8 @@ $(document).ready(function () {
         firstBlockData.forEach((item) => {
             allResponses[item.name] = item.value;
         });
-        console.log(usuarioId);
-        console.log(allResponses);
+        
         allResponses.id = usuarioId;
-        console.log(allResponses);
 
         $('#survey-container').html(renderSecondBlock());
     });
@@ -180,14 +173,12 @@ $(document).ready(function () {
         // Agregar el ID del usuario
         allResponses.id = usuarioId;
 
-        console.log(allResponses);
 
         const url = '../../backend/encuesta-add.php'; // URL del backend para procesar la encuesta
 
         // Enviar los datos mediante POST
         $.post(url, allResponses, (response) => {
             // Parsear la respuesta del backend
-            console.log(response);
 
             // Mostrar un mensaje de agradecimiento
             alert('¡Gracias por completar la encuesta!');

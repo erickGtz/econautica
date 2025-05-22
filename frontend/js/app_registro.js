@@ -86,7 +86,6 @@ $(document).ready(function () {
       // Enviar los datos al backend (puedes modificar esta parte según sea necesario)
       $.post('../../backend/user-add.php', usuarioData, (response) => {
         const respuesta = JSON.parse(response);
-        console.log(respuesta);
 
         // Iniciar sesión inmediatamente después de un registro exitoso
         if (respuesta.status === "success") {
@@ -148,7 +147,6 @@ function verificarSesion() {
     url: '../../backend/login.php',  // Ruta a tu archivo de verificación
     method: 'GET',
     success: function(data) {
-      console.log(data);
       if(data.logueado) {
         // Si el usuario está logueado, mostramos las opciones correspondientes
         $('#menu-login').hide();

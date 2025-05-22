@@ -10,7 +10,6 @@ $(document).ready(function () {
       'backend/activity-search.php',
       { location, category },
       function (response) {
-        console.log(response);
         const activities = JSON.parse(response);
         let resultsHTML = '';
 
@@ -230,7 +229,6 @@ $(document).ready(function () {
     data: { chartType: 'conciencia_vida_submarina' },
     success: function (response) {
       const respuesta = JSON.parse(response);
-      console.log(respuesta); // Aquí verificamos la respuesta
       crearGraficaConcienciaVidaSubmarina(respuesta); // Asegúrate de que los datos estén en formato JSON
     },
     error: function (xhr, status, error) {
@@ -245,7 +243,6 @@ $(document).ready(function () {
     data: { chartType: 'activities_by_state' },
     success: function (response) {
       const respuesta = JSON.parse(response);
-      console.log(respuesta); // Aquí verificamos la respuesta
       crearGraficaActividadesPorEstado(respuesta); // Asegúrate de que los datos estén en formato JSON
     },
     error: function (xhr, status, error) {
@@ -259,7 +256,6 @@ $(document).ready(function () {
     data: { chartType: 'reservations_by_state' },
     success: function (response) {
       const respuesta = JSON.parse(response);
-      console.log(respuesta); // Aquí verificamos la respuesta
       crearGraficaReservas(respuesta); // Asegúrate de que los datos estén en formato JSON
     },
     error: function (xhr, status, error) {
@@ -281,7 +277,6 @@ function verificarSesion() {
     url: './backend/login.php',  // Ruta a tu archivo de verificación
     method: 'GET',
     success: function (data) {
-      console.log(data);
       if (data.logueado) {
         // Si el usuario está logueado, mostramos las opciones correspondientes
         $('#menu-login').hide();

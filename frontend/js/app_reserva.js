@@ -69,7 +69,6 @@ $(document).ready(function () {
 
     $.post('../../backend/reserva-add.php', postData, function (response) {
       const resultado = JSON.parse(response);
-      console.log(resultado);
 
       if (resultado.status === 'success') {
         alert('Reserva creada con éxito');
@@ -86,7 +85,6 @@ function verificarSesion() {
     url: '../../backend/login.php',  // Ruta a tu archivo de verificación
     method: 'GET',
     success: function(data) {
-      console.log(data);
       if(data.logueado) {
         // Si el usuario está logueado, mostramos las opciones correspondientes
         $('#menu-login').hide();

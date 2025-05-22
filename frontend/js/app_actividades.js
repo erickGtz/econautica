@@ -8,7 +8,6 @@ $(document).ready(function () {
       type: 'GET',
       success: function (response) {
         const reservas = JSON.parse(response);
-        console.log(reservas);
 
         if (reservas.length > 0) {
           $('#actividadesContainer').html(''); // Limpiar antes de agregar
@@ -87,7 +86,6 @@ function verificarSesion() {
     url: '../../backend/login.php',
     method: 'GET',
     success: function(data) {
-      console.log(data);
       if (data.logueado) {
         $('#menu-login').hide();
         $('#menu-registro').hide();

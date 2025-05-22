@@ -7,7 +7,6 @@ function verificarSesion() {
         url: '../../backend/login.php',
         method: 'GET',
         success: function(data) {
-            console.log(data);
             if(data.logueado) {
                 $('#menu-login').hide();
                 $('#menu-registro').hide();
@@ -18,6 +17,7 @@ function verificarSesion() {
                     $('#menu-reservas').show();
                     $('#menu-actividades').hide();
                 } else if (data.usuario_tipo == 1) {
+                    $('#navbar-main-link').attr('href', '/econautica/frontend/views/view_propietario.php');
                     $('#menu-actividades').show();
                     $('#menu-reservas').hide();
                 }

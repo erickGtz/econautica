@@ -21,6 +21,14 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
     </head>
 
     <body>
+        <!-- Barra de búsqueda superior -->
+<nav class="navbar navbar-light bg-light px-3">
+    <form class="d-flex w-100" role="search" method="GET" action="buscar.php">
+        <input class="form-control me-2" type="search" name="q" placeholder="Buscar actividades..." aria-label="Buscar">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+    </form>
+</nav>
+
 
         <div id="header-placeholder"></div> <!-- Aquí se insertará el header -->
 
@@ -130,5 +138,18 @@ $usuario_logueado = isset($_SESSION['usuario_id']);
         <script src="frontend/plantillas/js/header.js"></script>
         <script src="frontend/plantillas/js/footer.js"></script>
     </body>
+
+    <body>
+
+    <!-- Barra de búsqueda superior -->
+    <nav class="navbar navbar-light bg-light px-3">
+        <form class="d-flex w-100" role="search" method="GET" action="buscar.php">
+            <input class="form-control me-2" type="search" name="q" placeholder="Buscar actividades..." aria-label="Buscar">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+    </nav>
+
+    <div id="header-placeholder"></div>
+
 
 </html>

@@ -56,45 +56,60 @@ $(document).ready(function () {
   }
 
   $(document).on('click', '.activity-rev', function (e) {
-    // Obtén el ID y costo de la actividad desde los atributos data
+    // Verificamos si el usuario está logueado antes de permitir la acción
     const activityId = $(this).data('activity-id');
     const activityCosto = $(this).data('activity-costo');
+    $.ajax({
+      url: './backend/login.php', // Verifica si hay sesión activa
+      method: 'GET',
+      success: function (data) {
+        if (data.logueado) {
+          // Si el usuario está logueado, redirige a la página de reserva
 
-    // Redirige a view_reserva con ID y costo como parámetros en la URL
-    window.location.href = `./frontend/views/view_reserva.php?activity_id=${activityId}&activity_costo=${activityCosto}`;
+          window.location.href = `./frontend/views/view_reserva.php?activity_id=${activityId}&activity_costo=${activityCosto}`;
+        } else {
+          // Si el usuario no está logueado, muestra un mensaje de advertencia
+          alert('Necesitas iniciar sesión para inscribirte en una actividad.');
+        }
+      },
+      error: function () {
+        alert('Necesitas iniciar sesión para inscribirte en una actividad.');
+      }
+    });
   });
+
 
   $('#search-location, #search-category').change(function () {
     buscarActividades();
   });
 
- $('#banner-encuesta').click(function() {
-  $.ajax({
-    url: './backend/login.php', // verifica si hay sesión
-    method: 'GET',
-    success: function(data) {
-      if(data.logueado) {
-        // Si está logueado, verificamos si ya contestó la encuesta
-        $.post('./backend/user-encuesta.php', { id: data.usuario_id }, function(response) {
-          const res = JSON.parse(response);
+  $('#banner-encuesta').click(function () {
+    $.ajax({
+      url: './backend/login.php', // verifica si hay sesión
+      method: 'GET',
+      success: function (data) {
+        if (data.logueado) {
+          // Si está logueado, verificamos si ya contestó la encuesta
+          $.post('./backend/user-encuesta.php', { id: data.usuario_id }, function (response) {
+            const res = JSON.parse(response);
 
-          if (res.status === 'exists') {
-            alert('Ya haz contestado la encuesta. Muchas gracias por tu participación.');
-          } else if (res.status === 'ok') {
-            window.location.href = 'frontend/views/view_encuesta.php';
-          } else {
-            alert('Error: ' + res.message);
-          }
-        });
-      } else {
-        alert('Necesitas iniciar sesión para contestar la encuesta.');
+            if (res.status === 'exists') {
+              alert('Ya haz contestado la encuesta. Muchas gracias por tu participación.');
+            } else if (res.status === 'ok') {
+              window.location.href = 'frontend/views/view_encuesta.php';
+            } else {
+              alert('Error: ' + res.message);
+            }
+          });
+        } else {
+          alert('Necesitas iniciar sesión para contestar la encuesta.');
+        }
+      },
+      error: function () {
+        alert('Error verificando sesión. Intenta de nuevo.');
       }
-    },
-    error: function() {
-      alert('Error verificando sesión. Intenta de nuevo.');
-    }
+    });
   });
-});
 
 
   // Crear gráfica 2: Participación en turismo sostenible
@@ -159,7 +174,7 @@ $(document).ready(function () {
   // Crear gráfica 3: Conciencia sobre la vida submarina
   function crearGraficaConcienciaVidaSubmarina(data) {
     const ctx = document.getElementById('chartConciencia').getContext('2d');
-    
+
     // Calculamos los porcentajes con base en los puntajes totales
     const totalPuntaje = data.puntaje_informados + data.puntaje_no_informados;
     const porcentajeInformados = (data.puntaje_informados / totalPuntaje) * 100;
@@ -265,9 +280,9 @@ function verificarSesion() {
   $.ajax({
     url: './backend/login.php',  // Ruta a tu archivo de verificación
     method: 'GET',
-    success: function(data) {
+    success: function (data) {
       console.log(data);
-      if(data.logueado) {
+      if (data.logueado) {
         // Si el usuario está logueado, mostramos las opciones correspondientes
         $('#menu-login').hide();
         $('#menu-registro').hide();
@@ -292,7 +307,7 @@ function verificarSesion() {
         $('#menu-actividades').hide();
       }
     },
-    error: function() {
+    error: function () {
       console.error('Error verificando la sesión.');
     }
   });
